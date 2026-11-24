@@ -1,7 +1,7 @@
 {
   "categories": [
     "Alimentation et boissons",
-    "Producteurs et AMAP",
+    "Producteurs agricoles",
     "Restaurants, cafés et hébergement",
     "Commerces et boutiques",
     "Artisans et bâtiment",
@@ -12,23 +12,502 @@
     "Services aux entreprises",
     "Culture, loisirs et sport"
   ],
-  "zones": ["L'Étang-la-Ville", "Proche (moins de 10 km)", "Plus loin"],
+  "zones": [
+    "L'Étang-la-Ville",
+    "Proche (moins de 10 km)",
+    "Plus loin"
+  ],
   "etiquettes": [
-    {"cle": "circuit-court", "label": "Circuit court", "groupe": 1},
-    {"cle": "produits-locaux", "label": "Produits locaux", "groupe": 1},
-    {"cle": "bio-ou-label", "label": "Bio ou labellisé", "groupe": 1},
-    {"cle": "reparation-reemploi", "label": "Réparation et réemploi", "groupe": 1},
-    {"cle": "livraison", "label": "Livraison", "groupe": 2},
-    {"cle": "sur-rendez-vous", "label": "Sur rendez-vous", "groupe": 2},
-    {"cle": "accessible-pmr", "label": "Accessible PMR", "groupe": 2},
-    {"cle": "boutique-physique", "label": "Boutique physique", "groupe": 2}
+    {
+      "cle": "circuit-court",
+      "label": "Circuit court",
+      "groupe": 1
+    },
+    {
+      "cle": "produits-locaux",
+      "label": "Produits locaux",
+      "groupe": 1
+    },
+    {
+      "cle": "bio-ou-label",
+      "label": "Bio ou labellisé",
+      "groupe": 1
+    },
+    {
+      "cle": "reparation-reemploi",
+      "label": "Réparation et réemploi",
+      "groupe": 1
+    },
+    {
+      "cle": "livraison",
+      "label": "Livraison",
+      "groupe": 2
+    },
+    {
+      "cle": "sur-rendez-vous",
+      "label": "Sur rendez-vous",
+      "groupe": 2
+    },
+    {
+      "cle": "accessible-pmr",
+      "label": "Accessible PMR",
+      "groupe": 2
+    },
+    {
+      "cle": "boutique-physique",
+      "label": "Boutique physique",
+      "groupe": 2
+    },
+    {
+      "cle": "a-domicile",
+      "label": "À domicile (je me déplace)",
+      "groupe": 2
+    },
+    {
+      "cle": "en-visio",
+      "label": "En visio ou à distance",
+      "groupe": 2
+    },
+    {
+      "cle": "devis-gratuit",
+      "label": "Devis gratuit",
+      "groupe": 2
+    },
+    {
+      "cle": "vrac-zero-dechet",
+      "label": "Vrac, zéro déchet",
+      "groupe": 1
+    },
+    {
+      "cle": "vente-au-marche",
+      "label": "Vente au marché",
+      "groupe": 2
+    },
+    {
+      "cle": "sur-commande",
+      "label": "Sur commande",
+      "groupe": 2
+    },
+    {
+      "cle": "vente-a-la-ferme",
+      "label": "Vente à la ferme",
+      "groupe": 2
+    },
+    {
+      "cle": "paniers-abonnement",
+      "label": "Paniers, abonnement",
+      "groupe": 2
+    },
+    {
+      "cle": "cueillette",
+      "label": "Cueillette",
+      "groupe": 2
+    },
+    {
+      "cle": "sur-place",
+      "label": "Sur place",
+      "groupe": 2
+    },
+    {
+      "cle": "a-emporter",
+      "label": "À emporter",
+      "groupe": 2
+    },
+    {
+      "cle": "terrasse",
+      "label": "Terrasse",
+      "groupe": 2
+    },
+    {
+      "cle": "options-vegetariennes",
+      "label": "Options végétariennes",
+      "groupe": 2
+    },
+    {
+      "cle": "hebergement",
+      "label": "Hébergement",
+      "groupe": 2
+    },
+    {
+      "cle": "vente-en-ligne",
+      "label": "Vente en ligne",
+      "groupe": 2
+    },
+    {
+      "cle": "fabrique-en-france",
+      "label": "Fabriqué en France",
+      "groupe": 1
+    },
+    {
+      "cle": "depannage-urgence",
+      "label": "Dépannage, urgence",
+      "groupe": 2
+    },
+    {
+      "cle": "materiaux-biosources",
+      "label": "Matériaux biosourcés",
+      "groupe": 1
+    },
+    {
+      "cle": "qualification-rge",
+      "label": "Qualification RGE",
+      "groupe": 1
+    },
+    {
+      "cle": "sur-mesure",
+      "label": "Sur mesure",
+      "groupe": 2
+    },
+    {
+      "cle": "zero-pesticide",
+      "label": "Zéro pesticide",
+      "groupe": 1
+    },
+    {
+      "cle": "jardin-naturel",
+      "label": "Jardin naturel, permaculture",
+      "groupe": 1
+    },
+    {
+      "cle": "entretien-regulier",
+      "label": "Entretien régulier",
+      "groupe": 2
+    },
+    {
+      "cle": "conseil-accompagnement",
+      "label": "Conseil, accompagnement",
+      "groupe": 2
+    },
+    {
+      "cle": "collectivites-entreprises",
+      "label": "Collectivités et entreprises",
+      "groupe": 2
+    },
+    {
+      "cle": "conventionne-secu",
+      "label": "Conventionné Sécurité sociale",
+      "groupe": 2
+    },
+    {
+      "cle": "pratiques-complementaires",
+      "label": "Pratiques complémentaires",
+      "groupe": 2
+    },
+    {
+      "cle": "accueil-enfants",
+      "label": "Accueille les enfants",
+      "groupe": 2
+    },
+    {
+      "cle": "seances-collectives",
+      "label": "Séances collectives",
+      "groupe": 2
+    },
+    {
+      "cle": "cours-individuels",
+      "label": "Cours individuels",
+      "groupe": 2
+    },
+    {
+      "cle": "ateliers-collectifs",
+      "label": "Ateliers collectifs",
+      "groupe": 2
+    },
+    {
+      "cle": "stages-vacances",
+      "label": "Stages, vacances",
+      "groupe": 2
+    },
+    {
+      "cle": "qualiopi",
+      "label": "Organisme certifié Qualiopi",
+      "groupe": 1
+    },
+    {
+      "cle": "credit-impot-sap",
+      "label": "Crédit d'impôt services à la personne",
+      "groupe": 2
+    },
+    {
+      "cle": "abonnement-regulier",
+      "label": "Abonnement, régulier",
+      "groupe": 2
+    },
+    {
+      "cle": "sur-site-client",
+      "label": "Sur site chez le client",
+      "groupe": 2
+    },
+    {
+      "cle": "formation-entreprise",
+      "label": "Formation, ateliers en entreprise",
+      "groupe": 2
+    },
+    {
+      "cle": "collectivites-associations",
+      "label": "Collectivités et associations",
+      "groupe": 2
+    },
+    {
+      "cle": "accompagnement-transition",
+      "label": "Accompagnement transition écologique",
+      "groupe": 1
+    },
+    {
+      "cle": "ateliers-stages",
+      "label": "Ateliers, stages",
+      "groupe": 2
+    },
+    {
+      "cle": "cours-collectifs",
+      "label": "Cours collectifs",
+      "groupe": 2
+    },
+    {
+      "cle": "evenements-prives",
+      "label": "Événements privés et entreprises",
+      "groupe": 2
+    }
   ],
   "motifs": [
-    {"cle": "inexact", "label": "Information inexacte ou périmée"},
-    {"cle": "disparu", "label": "L'activité n'existe plus"},
-    {"cle": "illicite", "label": "Contenu inapproprié ou illicite"},
-    {"cle": "droits", "label": "Atteinte à mes droits (photo, marque, vie privée)"},
-    {"cle": "temoignage", "label": "Témoignage douteux"},
-    {"cle": "autre", "label": "Autre"}
-  ]
+    {
+      "cle": "inexact",
+      "label": "Information inexacte ou périmée"
+    },
+    {
+      "cle": "disparu",
+      "label": "L'activité n'existe plus"
+    },
+    {
+      "cle": "illicite",
+      "label": "Contenu inapproprié ou illicite"
+    },
+    {
+      "cle": "droits",
+      "label": "Atteinte à mes droits (photo, marque, vie privée)"
+    },
+    {
+      "cle": "temoignage",
+      "label": "Témoignage douteux"
+    },
+    {
+      "cle": "autre",
+      "label": "Autre"
+    }
+  ],
+  "etiquettes_socle": [
+    "sur-rendez-vous",
+    "accessible-pmr",
+    "a-domicile",
+    "en-visio",
+    "devis-gratuit",
+    "livraison"
+  ],
+  "etiquettes_par_categorie": {
+    "Alimentation et boissons": [
+      "circuit-court",
+      "produits-locaux",
+      "bio-ou-label",
+      "vrac-zero-dechet",
+      "vente-au-marche",
+      "sur-commande",
+      "boutique-physique"
+    ],
+    "Producteurs agricoles": [
+      "circuit-court",
+      "produits-locaux",
+      "bio-ou-label",
+      "vente-a-la-ferme",
+      "paniers-abonnement",
+      "cueillette",
+      "vente-au-marche"
+    ],
+    "Restaurants, cafés et hébergement": [
+      "produits-locaux",
+      "bio-ou-label",
+      "sur-place",
+      "a-emporter",
+      "terrasse",
+      "options-vegetariennes",
+      "hebergement"
+    ],
+    "Commerces et boutiques": [
+      "boutique-physique",
+      "vente-en-ligne",
+      "produits-locaux",
+      "fabrique-en-france",
+      "reparation-reemploi",
+      "sur-commande"
+    ],
+    "Artisans et bâtiment": [
+      "depannage-urgence",
+      "reparation-reemploi",
+      "materiaux-biosources",
+      "qualification-rge",
+      "sur-mesure"
+    ],
+    "Jardin, paysage et environnement": [
+      "zero-pesticide",
+      "jardin-naturel",
+      "bio-ou-label",
+      "entretien-regulier",
+      "conseil-accompagnement",
+      "collectivites-entreprises"
+    ],
+    "Santé et bien-être": [
+      "conventionne-secu",
+      "pratiques-complementaires",
+      "accueil-enfants",
+      "seances-collectives"
+    ],
+    "Enfance, éducation et formation": [
+      "accueil-enfants",
+      "cours-individuels",
+      "ateliers-collectifs",
+      "stages-vacances",
+      "qualiopi"
+    ],
+    "Services aux particuliers": [
+      "credit-impot-sap",
+      "depannage-urgence",
+      "reparation-reemploi",
+      "abonnement-regulier"
+    ],
+    "Services aux entreprises": [
+      "sur-site-client",
+      "formation-entreprise",
+      "collectivites-associations",
+      "accompagnement-transition"
+    ],
+    "Culture, loisirs et sport": [
+      "ateliers-stages",
+      "cours-collectifs",
+      "cours-individuels",
+      "accueil-enfants",
+      "evenements-prives"
+    ]
+  },
+  "metiers_par_categorie": {
+    "Alimentation et boissons": [
+      "Boulangerie",
+      "Pâtisserie",
+      "Boucherie",
+      "Charcuterie",
+      "Fromagerie",
+      "Épicerie",
+      "Cave à vins",
+      "Traiteur",
+      "Chocolatier",
+      "Primeur"
+    ],
+    "Producteurs agricoles": [
+      "Maraîcher",
+      "Arboriculteur",
+      "Éleveur",
+      "Apiculteur",
+      "Vigneron",
+      "Brasseur",
+      "Cueilleur"
+    ],
+    "Restaurants, cafés et hébergement": [
+      "Restaurant",
+      "Café",
+      "Bar",
+      "Salon de thé",
+      "Chambre d'hôtes",
+      "Gîte",
+      "Food truck"
+    ],
+    "Commerces et boutiques": [
+      "Fleuriste",
+      "Librairie",
+      "Boutique de vêtements",
+      "Bijouterie",
+      "Décoration",
+      "Presse",
+      "Quincaillerie",
+      "Brocante"
+    ],
+    "Artisans et bâtiment": [
+      "Maçon",
+      "Électricien",
+      "Plombier",
+      "Menuisier",
+      "Ébéniste",
+      "Peintre en bâtiment",
+      "Couvreur",
+      "Carreleur",
+      "Serrurier",
+      "Chauffagiste",
+      "Architecte d'intérieur"
+    ],
+    "Jardin, paysage et environnement": [
+      "Paysagiste",
+      "Jardinier",
+      "Élagueur",
+      "Pépiniériste",
+      "Conseil en environnement",
+      "Permaculteur"
+    ],
+    "Santé et bien-être": [
+      "Médecin généraliste",
+      "Infirmier·ère",
+      "Kinésithérapeute",
+      "Ostéopathe",
+      "Dentiste",
+      "Sage-femme",
+      "Orthophoniste",
+      "Psychologue",
+      "Psychomotricien·ne",
+      "Podologue",
+      "Diététicien·ne",
+      "Naturopathe",
+      "Sophrologue",
+      "Hypnothérapeute",
+      "Réflexologue",
+      "Coach de vie"
+    ],
+    "Enfance, éducation et formation": [
+      "Micro-crèche",
+      "Assistante maternelle",
+      "Soutien scolaire",
+      "Professeur de musique",
+      "Formateur",
+      "Auto-école",
+      "Éducateur"
+    ],
+    "Services aux particuliers": [
+      "Ménage",
+      "Aide à domicile",
+      "Coiffeur à domicile",
+      "Banque",
+      "Assurance",
+      "Notaire",
+      "Agent immobilier",
+      "Déménagement",
+      "Informatique à domicile",
+      "Photographe"
+    ],
+    "Services aux entreprises": [
+      "Conseil en gestion",
+      "Communication",
+      "Ressources humaines",
+      "Coaching",
+      "Comptabilité",
+      "Avocat",
+      "Informatique",
+      "Agence web",
+      "Graphiste"
+    ],
+    "Culture, loisirs et sport": [
+      "Ateliers œnologiques",
+      "Cours de yoga",
+      "Cours de danse",
+      "Musicien",
+      "Artiste",
+      "Photographe",
+      "Coach sportif",
+      "Club de sport"
+    ]
+  }
 }

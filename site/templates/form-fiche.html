@@ -4,14 +4,14 @@
 
   <fieldset class="etape" data-step="1" data-titre="Vos coordonnées">
     <legend>Vos coordonnées (privées)</legend>
-    <p class="aide">Ces informations ne sont jamais publiées. Elles servent à vous écrire et à vous envoyer votre lien de modification.</p>
+    <p class="aide">Ces informations ne sont jamais publiées sur l'annuaire public. Elles servent à vous écrire, à vous envoyer votre lien de modification et, si vous le souhaitez, à figurer dans l'annuaire privé des entrepreneurs (voir dernière étape).</p>
     <div class="grille2">
       <div class="champ"><label for="f-prenom">Prénom *</label><input id="f-prenom" name="prenom" type="text" required maxlength="60" autocomplete="given-name"></div>
       <div class="champ"><label for="f-nom">Nom *</label><input id="f-nom" name="nom" type="text" required maxlength="60" autocomplete="family-name"></div>
     </div>
     <div class="grille2">
       <div class="champ"><label for="f-email-contact">Votre e-mail *</label><input id="f-email-contact" name="email_contact" type="email" required maxlength="120" autocomplete="email"><p class="aide" id="aide-email">Un lien de confirmation y sera envoyé.</p></div>
-      <div class="champ"><label for="f-tel-prive">Votre téléphone (facultatif)</label><input id="f-tel-prive" name="tel_prive" type="tel" maxlength="30" autocomplete="tel"></div>
+      <div class="champ"><label for="f-tel-prive">Votre téléphone *</label><input id="f-tel-prive" name="tel_prive" type="tel" required maxlength="30" autocomplete="tel"></div>
     </div>
   </fieldset>
 
@@ -20,13 +20,14 @@
     <div class="champ"><label for="f-enseigne">Nom de l'enseigne *</label><input id="f-enseigne" name="enseigne" type="text" required maxlength="80"></div>
     <div class="grille2">
       <div class="champ"><label for="f-categorie">Catégorie *</label><select id="f-categorie" name="categorie" required><option value="">Choisir…</option>{{{categorie_options}}}</select></div>
-      <div class="champ"><label for="f-metier">Métier *</label><input id="f-metier" name="metier" type="text" required maxlength="60" placeholder="Boulangerie, paysagiste…"></div>
+      <div class="champ"><label for="f-metier">Métier *</label><input id="f-metier" name="metier" type="text" required maxlength="60" list="liste-metiers" placeholder="Boulangerie, paysagiste, kinésithérapeute…"><datalist id="liste-metiers"></datalist><p class="aide">Saisie libre : les suggestions dépendent de la catégorie, votre métier n'y figure peut-être pas.</p></div>
     </div>
     <div class="champ"><label for="f-accroche">Accroche : une phrase pour vous présenter *</label><input id="f-accroche" name="accroche" type="text" required maxlength="140"><p class="compte" data-compte="f-accroche"></p></div>
     <div class="champ"><label for="f-presentation">Présentation</label><textarea id="f-presentation" name="presentation" maxlength="1500" rows="8"></textarea><p class="aide">Texte brut : les retours à la ligne sont conservés, le HTML n'est pas accepté.</p><p class="compte" data-compte="f-presentation"></p></div>
     <div class="champ"><label for="f-histoire">Mon histoire avec L'Étang</label><textarea id="f-histoire" name="histoire_etang" maxlength="800" rows="5"></textarea><p class="compte" data-compte="f-histoire"></p></div>
     <fieldset class="champ cases" aria-labelledby="lib-etiquettes">
       <legend id="lib-etiquettes" class="etiquette">Étiquettes (plusieurs choix possibles)</legend>
+      <p class="aide" id="aide-etiquettes">Choisissez d'abord une catégorie : les étiquettes correspondantes s'afficheront ici.</p>
 {{{etiquettes_cases}}}
     </fieldset>
 
@@ -42,11 +43,11 @@
     <div class="champ"><label for="f-zone">Zone d'intervention ou d'implantation *</label><select id="f-zone" name="zone" required><option value="">Choisir…</option>{{{zone_options}}}</select></div>
     <div class="champ"><label for="f-horaires">Horaires</label><textarea id="f-horaires" name="horaires" maxlength="300" rows="3" placeholder="Du mardi au samedi, 8 h - 19 h"></textarea></div>
 
-    <h3>Vos coordonnées publiques</h3>
-    <p class="aide">Facultatif. Ce que vous saisissez ici sera visible de tous.</p>
+    <h3>Vos coordonnées professionnelles</h3>
+    <p class="aide">Téléphone et e-mail sont obligatoires : ils sont affichés sur la fiche de l'annuaire public. Vous pouvez indiquer un autre numéro ou une autre adresse que vos coordonnées privées.</p>
     <div class="grille2">
-      <div class="champ"><label for="f-tel-pub">Téléphone</label><input id="f-tel-pub" name="telephone_public" type="tel" maxlength="30"></div>
-      <div class="champ"><label for="f-email-pub">E-mail</label><input id="f-email-pub" name="email_public" type="email" maxlength="120"></div>
+      <div class="champ"><label for="f-tel-pub">Téléphone *</label><input id="f-tel-pub" name="telephone_public" type="tel" required maxlength="30"></div>
+      <div class="champ"><label for="f-email-pub">E-mail *</label><input id="f-email-pub" name="email_public" type="email" required maxlength="120"></div>
       <div class="champ"><label for="f-site">Site web</label><input id="f-site" name="site_web" type="text" maxlength="200" inputmode="url"></div>
       <div class="champ"><label for="f-fb">Facebook</label><input id="f-fb" name="facebook" type="text" maxlength="200"></div>
       <div class="champ"><label for="f-ig">Instagram</label><input id="f-ig" name="instagram" type="text" maxlength="200" placeholder="adresse du profil ou identifiant"></div>
@@ -69,7 +70,10 @@
       <div id="liste-temoignages"></div>
       <button type="button" class="bouton secondaire" id="ajout-temoignage">Ajouter un témoignage</button>
     </div>
-    <div class="champ case"><input type="checkbox" id="f-conditions" name="conditions" required><label for="f-conditions">J'ai lu et j'accepte les <a href="{{root}}conditions-de-publication/" target="_blank" rel="noopener">conditions de publication</a>, et je demande la publication de ma fiche. *</label></div>
+    <p class="aide">Où souhaitez-vous apparaître ? Cochez l'une des deux cases, ou les deux. Vous pouvez changer d'avis à tout moment.</p>
+    <div class="champ case"><input type="checkbox" id="f-pub" name="consent_public"><label for="f-pub">J'accepte d'être publié(e) dans l'<strong>annuaire public</strong> de « Fait à L'Étang » (ouvert à tous), selon les <a href="{{root}}conditions-de-publication/" target="_blank" rel="noopener">conditions de publication</a>.</label></div>
+    <div class="champ case"><input type="checkbox" id="f-priv" name="consent_prive"><label for="f-priv">J'accepte d'être publié(e) dans l'<strong>annuaire privé des entrepreneurs</strong>, réservé aux membres du groupe, avec mon prénom et nom, mon e-mail et mon téléphone privés, mes compétences et mes centres d'intérêts. L'appartenance au groupe est validée au cas par cas ; elle est donnée en priorité aux activités dont le siège est à L'Étang-la-Ville.</label></div>
+    <div class="champ case"><input type="checkbox" id="f-conditions" name="conditions" required><label for="f-conditions">J'ai lu et j'accepte les <a href="{{root}}conditions-de-publication/" target="_blank" rel="noopener">conditions de publication</a>. *</label></div>
     <div class="champ case" id="bloc-attestation" hidden><input type="checkbox" id="f-attestation" name="attestation"><label for="f-attestation">Les témoignages sont authentiques : je les ai recueillis avec l'accord de leurs auteurs. *</label></div>
     <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="entreprise_web" tabindex="-1" autocomplete="off"></label></div>
     <div id="turnstile" class="champ"></div>

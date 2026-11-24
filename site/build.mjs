@@ -325,6 +325,11 @@ page({
   content: rendre(TPL('modifier.html'), { form: formulaire('modifier', '../') }, 'modifier.html'), scripts: ['forms.js']
 });
 page({
+  chemin: 'membres/index.html', profondeur: 1, robots: true, sitemap: false,
+  titre: `Annuaire privé — ${cfg.NOM}`, description: 'Annuaire privé réservé aux membres.',
+  content: rendre(TPL('membres.html'), { root: '../' }, 'membres.html'), scripts: ['membres.js']
+});
+page({
   chemin: 'confirmer/index.html', profondeur: 1, robots: true, sitemap: false,
   titre: `Confirmation — ${cfg.NOM}`, description: 'Confirmation de votre adresse e-mail.',
   content: TPL('confirmer.html'), scripts: ['confirmer.js']
@@ -363,7 +368,7 @@ pages.forEach((p) => ecrire(p.chemin, p.html));
 ecrire('assets/theme.css', `${charte.css}\n:root{--c-lien:${charte.lien}}\n`);
 for (const m of charte.css.matchAll(/url\("fonts\/([^"]+)"\)/g)) copier(path.join(SITE, 'assets', 'fonts', m[1]), 'assets/fonts/' + m[1]);
 copier(path.join(SITE, 'css', 'base.css'), 'assets/site.css');
-for (const j of ['util.js', 'home.js', 'fiche.js', 'forms.js', 'confirmer.js']) copier(path.join(SITE, 'js', j), 'assets/' + j);
+for (const j of ['util.js', 'home.js', 'fiche.js', 'forms.js', 'confirmer.js', 'membres.js']) copier(path.join(SITE, 'js', j), 'assets/' + j);
 copierDossier(path.join(SITE, 'assets', 'vendor', 'leaflet'), 'assets/vendor/leaflet');
 for (const l of fs.readdirSync(path.join(ROOT, 'licences'))) copier(path.join(ROOT, 'licences', l), 'assets/licences/' + l);
 

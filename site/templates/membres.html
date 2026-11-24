@@ -1,0 +1,24 @@
+<div class="contenu page">
+  <h1>Annuaire privé des entrepreneurs</h1>
+  <div id="p-demande">
+    <p>Cet annuaire est réservé aux membres du groupe des entrepreneurs de L'Étang-la-Ville. L'appartenance est validée au cas par cas, après inscription et consentement à l'annuaire privé. Saisissez l'adresse e-mail de votre fiche : si vous êtes membre, un lien d'accès personnel, valable 24 heures, vous sera envoyé.</p>
+    <form id="form-membre" novalidate>
+      <div class="champ"><label for="p-email">Votre e-mail</label><input id="p-email" name="email" type="email" required maxlength="120" autocomplete="email"></div>
+      <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="entreprise_web" tabindex="-1" autocomplete="off"></label></div>
+      <button class="bouton" type="submit">Recevoir mon lien d'accès</button>
+      <div id="p-statut" class="message" role="status" tabindex="-1" hidden></div>
+    </form>
+    <p class="aide">Pas encore inscrit·e ? <a href="{{root}}inscrire/">Inscrire mon activité</a> et cochez la case « annuaire privé ».</p>
+  </div>
+  <div id="p-chargement" class="message" role="status" hidden>Chargement de l'annuaire…</div>
+  <div id="p-invalide" class="message erreur" role="alert" hidden>Ce lien n'est plus valable. Demandez-en un nouveau ci-dessus.</div>
+  <div id="p-liste" hidden>
+    <p class="aide">Ces coordonnées sont réservées aux membres du groupe : ne les transmettez pas et ne les utilisez pas pour de la prospection non sollicitée.</p>
+    <div class="grille2">
+      <div class="champ"><label for="p-recherche">Rechercher</label><input id="p-recherche" type="search" placeholder="Nom, métier, compétence, centre d'intérêt…"></div>
+      <div class="champ"><label for="p-cat">Catégorie</label><select id="p-cat"><option value="">Toutes</option></select></div>
+    </div>
+    <p id="p-compte" class="compte" aria-live="polite"></p>
+    <div id="p-cartes"></div>
+  </div>
+</div>

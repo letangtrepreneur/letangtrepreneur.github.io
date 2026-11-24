@@ -95,6 +95,24 @@
   }
   casAdresse.addEventListener('change', majAdresse); majAdresse();
 
+  /* ---------- Étiquettes et métiers selon la catégorie ---------- */
+  function majCategorie() {
+    var cat = form.categorie.value, t = E.tax;
+    var ok = {};
+    ((cat && t.etiquettes_par_categorie[cat]) || []).concat(cat ? t.etiquettes_socle : []).forEach(function (k) { ok[k] = true; });
+    [].forEach.call(form.querySelectorAll('input[name=etiquettes]'), function (c) {
+      var visible = !!ok[c.value];
+      if (!visible) c.checked = false;
+      c.closest('.case').hidden = !visible;
+    });
+    var aide = $('aide-etiquettes');
+    if (aide) aide.hidden = !!cat;
+    var dl = $('liste-metiers');
+    dl.textContent = '';
+    ((cat && t.metiers_par_categorie[cat]) || []).forEach(function (m) { dl.appendChild(E.el('option', { value: m })); });
+  }
+  form.categorie.addEventListener('change', majCategorie); majCategorie();
+
   /* ---------- Photos ---------- */
   function reduire(file) {
     return new Promise(function (resolve, reject) {
@@ -218,7 +236,11 @@
     photos = (d.photos || []).map(function (p) { return { id: p.id, apercu: p.data, alt: p.alt || '' }; });
     temoignages = (d.temoignages || []).map(function (t) { return { texte: t.texte, auteur: t.auteur, contexte: t.contexte || '' }; });
     dessinerPhotos(); dessinerTemoignages();
-    form.conditions.checked = statutFiche === 'publiee';
+    majCategorie();
+    [].forEach.call(form.querySelectorAll('input[name=etiquettes]'), function (c) { c.checked = (f.etiquettes || []).indexOf(c.value) >= 0; });
+    form.consent_public.checked = !!f.consentement_public;
+    form.consent_prive.checked = !!f.consentement_prive;
+    form.conditions.checked = statutFiche !== 'brouillon_importe';
     [].forEach.call(form.querySelectorAll('[data-compte]'), function (p) { $(p.getAttribute('data-compte')).dispatchEvent(new Event('input')); });
     afficherEtape(1, true);
   }
@@ -243,7 +265,7 @@
       fiche: fiche,
       photos: photos.map(function (p) { return p.data ? { data: p.data, data800: p.data800, alt: p.alt.trim() } : { id: p.id, alt: p.alt.trim() }; }),
       temoignages: temoignages.map(function (t) { return { texte: t.texte.trim(), auteur: t.auteur.trim(), contexte: (t.contexte || '').trim() }; }),
-      consentement: { conditions: form.conditions.checked, attestation: form.attestation.checked },
+      consentement: { conditions: form.conditions.checked, attestation: form.attestation.checked, public: form.consent_public.checked, prive: form.consent_prive.checked },
       hp: form.entreprise_web.value, t: Date.now() - E.t0, turnstile: turnstileJeton
     };
   }
@@ -252,6 +274,7 @@
     ev.preventDefault();
     for (var n = 1; n <= nbEtapes; n++) { if (!etapeValide(n)) { afficherEtape(n); etapeValide(n); return; } }
     var statut = $('statut'), btn = $('btn-envoi');
+    if (!form.consent_public.checked && !form.consent_prive.checked) { afficherEtape(nbEtapes); E.show(statut, 'Cochez au moins une des deux cases : annuaire public, annuaire privé des entrepreneurs, ou les deux.', 'erreur'); return; }
     if (E.cfg.TURNSTILE_SITEKEY && !turnstileJeton) { E.show(statut, 'Validez d\'abord le contrôle anti-robot.', 'erreur'); return; }
     btn.disabled = true;
     var attente = Math.max(0, DELAI_MIN - (Date.now() - E.t0));
