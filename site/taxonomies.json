@@ -1,0 +1,34 @@
+{
+  "categories": [
+    "Alimentation et boissons",
+    "Producteurs et AMAP",
+    "Restaurants, cafés et hébergement",
+    "Commerces et boutiques",
+    "Artisans et bâtiment",
+    "Jardin, paysage et environnement",
+    "Santé et bien-être",
+    "Enfance, éducation et formation",
+    "Services aux particuliers",
+    "Services aux entreprises",
+    "Culture, loisirs et sport"
+  ],
+  "zones": ["L'Étang-la-Ville", "Proche (moins de 10 km)", "Plus loin"],
+  "etiquettes": [
+    {"cle": "circuit-court", "label": "Circuit court", "groupe": 1},
+    {"cle": "produits-locaux", "label": "Produits locaux", "groupe": 1},
+    {"cle": "bio-ou-label", "label": "Bio ou labellisé", "groupe": 1},
+    {"cle": "reparation-reemploi", "label": "Réparation et réemploi", "groupe": 1},
+    {"cle": "livraison", "label": "Livraison", "groupe": 2},
+    {"cle": "sur-rendez-vous", "label": "Sur rendez-vous", "groupe": 2},
+    {"cle": "accessible-pmr", "label": "Accessible PMR", "groupe": 2},
+    {"cle": "boutique-physique", "label": "Boutique physique", "groupe": 2}
+  ],
+  "motifs": [
+    {"cle": "inexact", "label": "Information inexacte ou périmée"},
+    {"cle": "disparu", "label": "L'activité n'existe plus"},
+    {"cle": "illicite", "label": "Contenu inapproprié ou illicite"},
+    {"cle": "droits", "label": "Atteinte à mes droits (photo, marque, vie privée)"},
+    {"cle": "temoignage", "label": "Témoignage douteux"},
+    {"cle": "autre", "label": "Autre"}
+  ]
+}

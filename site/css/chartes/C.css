@@ -1,0 +1,22 @@
+/* Charte C · Enseigne peinte : l'annuaire de la rue d'à côté. */
+@font-face{font-family:"DM Serif Display";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/dm-serif-display-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/archivo-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/archivo-latin-600-normal.woff2") format("woff2")}
+:root{
+  --c-primaire:#1F6F78;
+  --c-secondaire:#F2C14E;
+  --c-fond:#FFFFFF;
+  --c-carte:#FFFFFF;
+  --c-texte:#16343A;
+  --c-texte2:#4D6468;
+  --c-pastille1-fond:#DCEFF0;
+  --c-pastille1-texte:#1F6F78;
+  --c-pastille2-fond:#FCEFC9;
+  --c-pastille2-texte:#7A5A0B;
+  --c-bordure:#CFE0E2;
+  --c-sur-primaire:#FFFFFF;
+  --f-titre:"DM Serif Display",Georgia,serif;
+  --f-texte:"Archivo",system-ui,"Segoe UI",sans-serif;
+  --poids-titre:400;
+  --signature:"l'annuaire de la rue d'à côté";
+}

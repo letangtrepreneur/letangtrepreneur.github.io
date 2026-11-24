@@ -1,0 +1,22 @@
+/* Charte A · Marché du samedi : ceux qui font la commune. */
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/fraunces-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/inter-latin-600-normal.woff2") format("woff2")}
+:root{
+  --c-primaire:#B5562F;
+  --c-secondaire:#8A9A6B;
+  --c-fond:#F7F1E6;
+  --c-carte:#FFFFFF;
+  --c-texte:#3A2A1E;
+  --c-texte2:#6E5B48;
+  --c-pastille1-fond:#DDE5D0;
+  --c-pastille1-texte:#3E5A2E;
+  --c-pastille2-fond:#F1DCCF;
+  --c-pastille2-texte:#8A3E1F;
+  --c-bordure:#E4D9C6;
+  --c-sur-primaire:#FFFFFF;
+  --f-titre:"Fraunces",Georgia,serif;
+  --f-texte:"Inter",system-ui,"Segoe UI",sans-serif;
+  --poids-titre:500;
+  --signature:"ceux qui font la commune";
+}

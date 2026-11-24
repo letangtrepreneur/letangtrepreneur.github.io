@@ -1,0 +1,39 @@
+<div class="contenu">
+  <nav class="fil" aria-label="Fil d'Ariane"><a href="{{root}}">L'annuaire</a> › {{categorie}}</nav>
+  <article>
+    <header class="fiche-tete">
+      <p class="categorie">{{categorie}}{{{metier_suite}}}</p>
+      <h1>{{enseigne}}</h1>
+      <p class="accroche">{{accroche}}</p>
+      {{{pastilles}}}
+    </header>
+    <div class="fiche-grille">
+      <div>
+{{{galerie}}}
+        <div class="texte-fiche">
+{{{presentation}}}
+{{{histoire}}}
+{{{temoignages}}}
+        </div>
+      </div>
+      <aside>
+        <section class="encadre" aria-labelledby="h-infos">
+          <h2 id="h-infos">Informations pratiques</h2>
+{{{coordonnees}}}
+        </section>
+{{{carte_situation}}}
+      </aside>
+    </div>
+    <p class="maj">Fiche mise à jour le {{maj}}.</p>
+    <details class="signaler" id="signaler" data-slug="{{slug}}">
+      <summary>Signaler un contenu</summary>
+      <form id="form-signaler" novalidate>
+        <div class="champ"><label for="s-motif">Motif</label><select id="s-motif" name="motif" required>{{{motifs_options}}}</select></div>
+        <div class="champ"><label for="s-detail">Précisions (300 caractères au plus)</label><textarea id="s-detail" name="detail" maxlength="300" rows="4"></textarea></div>
+        <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="entreprise_web" tabindex="-1" autocomplete="off"></label></div>
+        <button class="bouton" type="submit">Envoyer le signalement</button>
+        <div id="s-statut" class="message" role="status" tabindex="-1" hidden></div>
+      </form>
+    </details>
+  </article>
+</div>

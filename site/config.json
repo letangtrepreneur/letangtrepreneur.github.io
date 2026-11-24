@@ -1,0 +1,9 @@
+{
+  "NOM": "Fait à L'Étang",
+  "SITE_URL": "https://romznz.github.io/fait-a-letang",
+  "CHARTE": "B",
+  "WEBHOOK_BASE": "https://n8n.eaudevigne.com/webhook/annuaire",
+  "TURNSTILE_SITEKEY": "",
+  "CONTACT_EMAIL": "romain.miller@eaudevigne.com",
+  "CENTRE_CARTE": [48.8625, 2.0956]
+}

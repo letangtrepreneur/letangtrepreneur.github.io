@@ -1,0 +1,37 @@
+<section class="bandeau">
+  <div class="contenu">
+    <h1>Les commerçants, artisans et entrepreneurs de L'Étang-la-Ville</h1>
+    <p>Un annuaire gratuit, sans publicité ni classement : l'ordre des fiches change chaque jour, pour que personne ne soit mis en avant.</p>
+    <form class="recherche" role="search" id="form-recherche">
+      <label class="sr-only" for="q">Rechercher une activité</label>
+      <input type="search" id="q" name="q" placeholder="Boulangerie, jardin, réparation…" autocomplete="off">
+      <button class="bouton" type="submit">Rechercher</button>
+    </form>
+  </div>
+</section>
+<div class="contenu">
+  <div class="filtres" id="filtres" hidden>
+    <div>
+      <label for="cat">Catégorie</label>
+      <select id="cat"><option value="">Toutes les catégories</option></select>
+    </div>
+    <fieldset>
+      <legend>Étiquettes</legend>
+      <div class="puces" id="puces"></div>
+    </fieldset>
+  </div>
+  <div class="barre-resultats">
+    <p class="compteur" id="compteur" aria-live="polite">{{nb_texte}}</p>
+    <div class="vues" id="vues" hidden>
+      <button type="button" class="puce" id="vue-liste" aria-pressed="true">Liste</button>
+      <button type="button" class="puce" id="vue-carte" aria-pressed="false">Carte</button>
+    </div>
+  </div>
+  <noscript><p class="message">La recherche et la carte demandent JavaScript. La liste complète reste consultable ci-dessous.</p></noscript>
+  <ul class="liste" id="liste">
+{{{cartes}}}
+  </ul>
+  <p class="vide" id="vide" hidden>Aucune fiche ne correspond à cette recherche. Essayez un mot plus court ou retirez un filtre.</p>
+  <div id="carte" hidden role="region" aria-label="Carte des activités"></div>
+  <p class="maj" id="note-carte" hidden></p>
+</div>

@@ -1,0 +1,19 @@
+<div class="contenu etroit page">
+  <h1>Modifier ma fiche</h1>
+  <div id="m-demande">
+    <p>Saisissez l'adresse e-mail de votre fiche : un lien de modification, valable 7 jours, vous sera envoyé.</p>
+    <form id="form-lien" novalidate>
+      <div class="champ"><label for="l-email">Votre e-mail</label><input id="l-email" name="email" type="email" required maxlength="120" autocomplete="email"></div>
+      <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="entreprise_web" tabindex="-1" autocomplete="off"></label></div>
+      <button class="bouton" type="submit">Recevoir mon lien</button>
+      <div id="l-statut" class="message" role="status" tabindex="-1" hidden></div>
+    </form>
+  </div>
+  <div id="m-chargement" class="message" role="status" hidden>Chargement de votre fiche…</div>
+  <div id="m-invalide" class="message erreur" role="alert" hidden>Ce lien n'est plus valable. Demandez-en un nouveau ci-dessus : il suffit de votre adresse e-mail.</div>
+  <div id="m-brouillon" class="message ok" hidden><strong>Votre fiche n'est pas encore en ligne.</strong> Relisez-la, complétez-la, puis cochez les conditions de publication à la dernière étape et enregistrez : elle sera alors publiée. Rien n'est publié sans votre accord.</div>
+  <div id="m-edition" hidden>
+{{{form}}}
+  </div>
+  <div id="m-fini" class="message ok" role="status" tabindex="-1" hidden></div>
+</div>

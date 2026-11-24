@@ -1,0 +1,85 @@
+<form id="fiche-form" data-mode="{{mode}}" novalidate>
+  <p class="etapes" id="etapes" aria-live="polite"></p>
+  <p class="aide">Les champs marqués d'un astérisque (*) sont obligatoires.</p>
+
+  <fieldset class="etape" data-step="1" data-titre="Vos coordonnées">
+    <legend>Vos coordonnées (privées)</legend>
+    <p class="aide">Ces informations ne sont jamais publiées. Elles servent à vous écrire et à vous envoyer votre lien de modification.</p>
+    <div class="grille2">
+      <div class="champ"><label for="f-prenom">Prénom *</label><input id="f-prenom" name="prenom" type="text" required maxlength="60" autocomplete="given-name"></div>
+      <div class="champ"><label for="f-nom">Nom *</label><input id="f-nom" name="nom" type="text" required maxlength="60" autocomplete="family-name"></div>
+    </div>
+    <div class="grille2">
+      <div class="champ"><label for="f-email-contact">Votre e-mail *</label><input id="f-email-contact" name="email_contact" type="email" required maxlength="120" autocomplete="email"><p class="aide" id="aide-email">Un lien de confirmation y sera envoyé.</p></div>
+      <div class="champ"><label for="f-tel-prive">Votre téléphone (facultatif)</label><input id="f-tel-prive" name="tel_prive" type="tel" maxlength="30" autocomplete="tel"></div>
+    </div>
+  </fieldset>
+
+  <fieldset class="etape" data-step="2" data-titre="Votre activité" hidden>
+    <legend>Votre activité</legend>
+    <div class="champ"><label for="f-enseigne">Nom de l'enseigne *</label><input id="f-enseigne" name="enseigne" type="text" required maxlength="80"></div>
+    <div class="grille2">
+      <div class="champ"><label for="f-categorie">Catégorie *</label><select id="f-categorie" name="categorie" required><option value="">Choisir…</option>{{{categorie_options}}}</select></div>
+      <div class="champ"><label for="f-metier">Métier *</label><input id="f-metier" name="metier" type="text" required maxlength="60" placeholder="Boulangerie, paysagiste…"></div>
+    </div>
+    <div class="champ"><label for="f-accroche">Accroche : une phrase pour vous présenter *</label><input id="f-accroche" name="accroche" type="text" required maxlength="140"><p class="compte" data-compte="f-accroche"></p></div>
+    <div class="champ"><label for="f-presentation">Présentation</label><textarea id="f-presentation" name="presentation" maxlength="1500" rows="8"></textarea><p class="aide">Texte brut : les retours à la ligne sont conservés, le HTML n'est pas accepté.</p><p class="compte" data-compte="f-presentation"></p></div>
+    <div class="champ"><label for="f-histoire">Mon histoire avec L'Étang</label><textarea id="f-histoire" name="histoire_etang" maxlength="800" rows="5"></textarea><p class="compte" data-compte="f-histoire"></p></div>
+    <fieldset class="champ cases" aria-labelledby="lib-etiquettes">
+      <legend id="lib-etiquettes" class="etiquette">Étiquettes (plusieurs choix possibles)</legend>
+{{{etiquettes_cases}}}
+    </fieldset>
+
+    <h3>Où et quand</h3>
+    <div class="champ case"><input type="checkbox" id="f-adresse-publique" name="adresse_publique"><label for="f-adresse-publique">Afficher mon adresse et me placer sur la carte. À laisser décoché pour une activité exercée à domicile.</label></div>
+    <div id="bloc-adresse">
+      <div class="champ"><label for="f-adresse">Adresse</label><input id="f-adresse" name="adresse" type="text" maxlength="120" autocomplete="street-address"></div>
+      <div class="grille2">
+        <div class="champ"><label for="f-cp">Code postal</label><input id="f-cp" name="code_postal" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code"></div>
+        <div class="champ"><label for="f-commune">Commune</label><input id="f-commune" name="commune" type="text" maxlength="60" value="L'Étang-la-Ville"></div>
+      </div>
+    </div>
+    <div class="champ"><label for="f-zone">Zone d'intervention ou d'implantation *</label><select id="f-zone" name="zone" required><option value="">Choisir…</option>{{{zone_options}}}</select></div>
+    <div class="champ"><label for="f-horaires">Horaires</label><textarea id="f-horaires" name="horaires" maxlength="300" rows="3" placeholder="Du mardi au samedi, 8 h - 19 h"></textarea></div>
+
+    <h3>Vos coordonnées publiques</h3>
+    <p class="aide">Facultatif. Ce que vous saisissez ici sera visible de tous.</p>
+    <div class="grille2">
+      <div class="champ"><label for="f-tel-pub">Téléphone</label><input id="f-tel-pub" name="telephone_public" type="tel" maxlength="30"></div>
+      <div class="champ"><label for="f-email-pub">E-mail</label><input id="f-email-pub" name="email_public" type="email" maxlength="120"></div>
+      <div class="champ"><label for="f-site">Site web</label><input id="f-site" name="site_web" type="text" maxlength="200" inputmode="url"></div>
+      <div class="champ"><label for="f-fb">Facebook</label><input id="f-fb" name="facebook" type="text" maxlength="200"></div>
+      <div class="champ"><label for="f-ig">Instagram</label><input id="f-ig" name="instagram" type="text" maxlength="200" placeholder="adresse du profil ou identifiant"></div>
+      <div class="champ"><label for="f-li">LinkedIn</label><input id="f-li" name="linkedin" type="text" maxlength="200"></div>
+    </div>
+    <div class="champ"><label for="f-autre">Autre lien</label><input id="f-autre" name="autre_lien" type="text" maxlength="200"></div>
+  </fieldset>
+
+  <fieldset class="etape" data-step="3" data-titre="Photos et témoignages" hidden>
+    <legend>Photos et témoignages</legend>
+    <div class="champ">
+      <label for="f-photos">Photos (6 au maximum)</label>
+      <p class="aide">La première est la vignette de votre fiche. Chaque photo est réduite sur votre appareil avant l'envoi, et les données cachées de l'image (lieu de prise de vue, par exemple) sont supprimées. Ne publiez que des photos dont vous détenez les droits. Un texte alternatif est demandé pour chacune : il décrit l'image aux personnes qui ne la voient pas.</p>
+      <input type="file" id="f-photos" accept="image/*" multiple>
+      <div id="liste-photos" aria-live="polite"></div>
+    </div>
+    <div class="champ">
+      <span class="etiquette">Témoignages de clients (5 au maximum)</span>
+      <p class="aide">Ni note ni étoile : des phrases de clients, recueillies avec leur accord. Indiquez le prénom et l'initiale, par exemple « Claire J. ».</p>
+      <div id="liste-temoignages"></div>
+      <button type="button" class="bouton secondaire" id="ajout-temoignage">Ajouter un témoignage</button>
+    </div>
+    <div class="champ case"><input type="checkbox" id="f-conditions" name="conditions" required><label for="f-conditions">J'ai lu et j'accepte les <a href="{{root}}conditions-de-publication/" target="_blank" rel="noopener">conditions de publication</a>, et je demande la publication de ma fiche. *</label></div>
+    <div class="champ case" id="bloc-attestation" hidden><input type="checkbox" id="f-attestation" name="attestation"><label for="f-attestation">Les témoignages sont authentiques : je les ai recueillis avec l'accord de leurs auteurs. *</label></div>
+    <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="entreprise_web" tabindex="-1" autocomplete="off"></label></div>
+    <div id="turnstile" class="champ"></div>
+  </fieldset>
+
+  <div class="navetapes">
+    <button type="button" class="bouton secondaire" id="btn-prec" hidden>Précédent</button>
+    <button type="button" class="bouton" id="btn-suiv">Suivant</button>
+    <button type="submit" class="bouton" id="btn-envoi" hidden>{{libelle_envoi}}</button>
+  </div>
+  <div id="statut" class="message" role="status" tabindex="-1" hidden></div>
+{{{zone_suppression}}}
+</form>

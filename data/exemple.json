@@ -1,0 +1,462 @@
+[
+  {
+    "slug": "boulangerie-les-trois-epis",
+    "enseigne": "Boulangerie Les Trois Épis",
+    "categorie": "Alimentation et boissons",
+    "metier": "Boulangerie",
+    "accroche": "Pains au levain, farines de blé de la plaine de Versailles, cuits chaque matin au four à bois.",
+    "presentation": "Nous pétrissons tous les jours, à partir de farines meunières de la plaine de Versailles. Le pain lève lentement, au levain naturel, et cuit au four à bois.\n\nLe samedi, retrouvez la fougasse aux herbes du potager voisin et les brioches du dimanche, à commander la veille.",
+    "histoire_etang": "Installés à L'Étang depuis 2019, nous avons repris le fournil de la rue principale. Les premiers clients sont devenus des habitués : on se tutoie à la deuxième baguette.",
+    "etiquettes": [
+      "produits-locaux",
+      "bio-ou-label",
+      "boutique-physique"
+    ],
+    "zone": "L'Étang-la-Ville",
+    "horaires": "Du mardi au samedi, 7 h - 19 h 30. Dimanche, 7 h - 13 h.",
+    "maj": "2026-11-12",
+    "adresse": "12 rue du Coteau",
+    "code_postal": "78620",
+    "commune": "L'Étang-la-Ville",
+    "lat": 48.8636,
+    "lon": 2.0935,
+    "email_public": "contact@boulangerie-les-trois-epis.example.org",
+    "telephone_public": "01 99 00 01 18",
+    "site_web": "https://trois-epis.example.org",
+    "instagram": "https://www.instagram.com/troisepis_exemple/",
+    "photos": [
+      {
+        "fichier": "1",
+        "alt": "Vitrine de pains et de viennoiseries",
+        "ordre": 1
+      },
+      {
+        "fichier": "2",
+        "alt": "Le fournil et le four à bois",
+        "ordre": 2
+      },
+      {
+        "fichier": "3",
+        "alt": "Pains au levain sur une planche",
+        "ordre": 3
+      }
+    ],
+    "temoignages": [
+      {
+        "texte": "Le meilleur pain de la commune, et on n'a pas besoin de se garer loin.",
+        "auteur": "Claire J.",
+        "contexte": "cliente depuis 2019",
+        "ordre": 1
+      },
+      {
+        "texte": "Leur pain aux céréales se garde trois jours sans broncher.",
+        "auteur": "Mathieu P.",
+        "contexte": "",
+        "ordre": 2
+      }
+    ]
+  },
+  {
+    "slug": "ferme-du-bois-joli",
+    "enseigne": "Ferme du Bois Joli",
+    "categorie": "Producteurs et AMAP",
+    "metier": "Maraîchage en AMAP",
+    "accroche": "Légumes de saison cultivés sans pesticide, en paniers hebdomadaires, à quinze minutes de L'Étang.",
+    "presentation": "Trois hectares de maraîchage diversifié, travaillés sans labour profond ni produits de synthèse. Nous livrons un panier par semaine à une AMAP voisine et vendons le jeudi soir à la ferme.\n\nOn cultive une soixantaine de légumes, des variétés anciennes pour la plupart, et un petit verger de pommiers qui donne en octobre.",
+    "histoire_etang": "",
+    "etiquettes": [
+      "circuit-court",
+      "bio-ou-label",
+      "livraison"
+    ],
+    "zone": "Proche (moins de 10 km)",
+    "horaires": "Vente à la ferme le jeudi, 17 h - 19 h.",
+    "maj": "2026-11-12",
+    "adresse": "Chemin des Bois",
+    "code_postal": "78160",
+    "commune": "Marly-le-Roi",
+    "lat": 48.872,
+    "lon": 2.0926,
+    "email_public": "contact@ferme-du-bois-joli.example.org",
+    "telephone_public": "01 99 00 02 19",
+    "site_web": "https://bois-joli.example.org",
+    "photos": [
+      {
+        "fichier": "1",
+        "alt": "Rangs de légumes au petit matin",
+        "ordre": 1
+      },
+      {
+        "fichier": "2",
+        "alt": "Paniers de saison prêts à partir",
+        "ordre": 2
+      }
+    ],
+    "temoignages": []
+  },
+  {
+    "slug": "atelier-lumiere-menuiserie",
+    "enseigne": "Atelier Lumière",
+    "categorie": "Artisans et bâtiment",
+    "metier": "Menuiserie sur mesure",
+    "accroche": "Placards, bibliothèques et escaliers fabriqués dans mon atelier, en bois de la région quand c'est possible.",
+    "presentation": "Je dessine, je fabrique et je pose : bibliothèques, placards sous pente, cuisines, escaliers. Je privilégie les bois français et les finitions à l'huile.\n\nJe répare aussi : un meuble ancien qui grince ou une porte qui frotte se remet souvent en état sans tout remplacer.",
+    "histoire_etang": "J'ai grandi à deux pas du lavoir. Mon premier chantier ici, c'était l'étagère de la bibliothèque municipale.",
+    "etiquettes": [
+      "sur-rendez-vous",
+      "reparation-reemploi",
+      "produits-locaux"
+    ],
+    "zone": "L'Étang-la-Ville",
+    "horaires": "Sur rendez-vous, du lundi au vendredi.",
+    "maj": "2026-11-12",
+    "email_public": "contact@atelier-lumiere-menuiserie.example.org",
+    "telephone_public": "01 99 00 03 20",
+    "photos": [
+      {
+        "fichier": "1",
+        "alt": "Une bibliothèque en chêne posée dans un salon",
+        "ordre": 1
+      }
+    ],
+    "temoignages": []
+  },
+  {
+    "slug": "cabinet-du-tilleul",
+    "enseigne": "Cabinet du Tilleul",
+    "categorie": "Santé et bien-être",
+    "metier": "Naturopathie",
+    "accroche": "Accompagnement en hygiène de vie, alimentation et gestion du stress, en consultation individuelle.",
+    "presentation": "Consultations individuelles d'une heure, sur rendez-vous, pour faire le point sur l'alimentation, le sommeil et le stress. Je ne remplace pas un médecin : j'accompagne des changements d'habitudes, à votre rythme.\n\nAtelier cuisine de saison une fois par mois.",
+    "histoire_etang": "",
+    "etiquettes": [
+      "sur-rendez-vous"
+    ],
+    "zone": "L'Étang-la-Ville",
+    "horaires": "Sur rendez-vous, du mardi au jeudi.",
+    "maj": "2026-11-12",
+    "telephone_public": "01 99 00 04 21",
+    "photos": [],
+    "temoignages": []
+  },
+  {
+    "slug": "la-table-de-l-etang",
+    "enseigne": "La Table de l'Étang",
+    "categorie": "Restaurants, cafés et hébergement",
+    "metier": "Restaurant",
+    "accroche": "Cuisine de marché, produits du plateau de Saclay et des producteurs voisins, ardoise renouvelée chaque semaine.",
+    "presentation": "Une cuisine simple et généreuse, construite autour de ce que les producteurs voisins apportent chaque semaine : légumes, volailles, fromages de ferme. L'ardoise change au fil des saisons.\n\nLa salle accueille jusqu'à quarante couverts, et la terrasse ouvre dès les premiers beaux jours. Plat végétarien tous les jours.",
+    "histoire_etang": "On est arrivés à L'Étang pour la forêt et on est restés pour les gens : la moitié de nos fournisseurs sont à moins de dix kilomètres.",
+    "etiquettes": [
+      "produits-locaux",
+      "circuit-court",
+      "accessible-pmr",
+      "boutique-physique"
+    ],
+    "zone": "L'Étang-la-Ville",
+    "horaires": "Du mardi au samedi, 12 h - 14 h et 19 h 30 - 22 h. Dimanche midi.",
+    "maj": "2026-11-12",
+    "adresse": "3 place de l'Église",
+    "code_postal": "78620",
+    "commune": "L'Étang-la-Ville",
+    "lat": 48.8617,
+    "lon": 2.097,
+    "email_public": "contact@la-table-de-l-etang.example.org",
+    "telephone_public": "01 99 00 05 22",
+    "site_web": "https://table-etang.example.org",
+    "facebook": "https://www.facebook.com/latabledeletang.exemple",
+    "photos": [
+      {
+        "fichier": "1",
+        "alt": "La salle et ses tables en bois",
+        "ordre": 1
+      },
+      {
+        "fichier": "2",
+        "alt": "L'assiette du jour",
+        "ordre": 2
+      },
+      {
+        "fichier": "3",
+        "alt": "La terrasse en fin de journée",
+        "ordre": 3
+      }
+    ],
+    "temoignages": [
+      {
+        "texte": "Une ardoise courte, des légumes qui ont du goût, un accueil sans chichi.",
+        "auteur": "Hélène B.",
+        "contexte": "cliente régulière",
+        "ordre": 1
+      },
+      {
+        "texte": "Nous y avons fêté un anniversaire de vingt personnes : tout s'est très bien passé.",
+        "auteur": "Karim D.",
+        "contexte": "en 2024",
+        "ordre": 2
+      },
+      {
+        "texte": "Le plat végétarien n'est pas un plat par défaut : c'est un vrai plat.",
+        "auteur": "Sophie L.",
+        "contexte": "",
+        "ordre": 3
+      }
+    ]
+  },
+  {
+    "slug": "jardins-de-marly",
+    "enseigne": "Jardins de Marly",
+    "categorie": "Jardin, paysage et environnement",
+    "metier": "Paysagiste",
+    "accroche": "Création et entretien de jardins sobres en eau, avec des plantes locales et de la récupération de pluie.",
+    "presentation": "Nous concevons des jardins qui tiennent seuls une fois installés : plantes adaptées au sol et au climat, paillage, haies champêtres, récupération des eaux de pluie. Pas de gazon assoiffé, pas de produits de synthèse.\n\nEntretien régulier ou ponctuel, taille douce, conseils à la visite.",
+    "histoire_etang": "",
+    "etiquettes": [
+      "bio-ou-label",
+      "produits-locaux",
+      "sur-rendez-vous"
+    ],
+    "zone": "Proche (moins de 10 km)",
+    "horaires": "Du lundi au vendredi, 8 h - 17 h.",
+    "maj": "2026-11-12",
+    "adresse": "8 avenue des Tilleuls",
+    "code_postal": "78100",
+    "commune": "Saint-Germain-en-Laye",
+    "lat": 48.8985,
+    "lon": 2.0936,
+    "email_public": "contact@jardins-de-marly.example.org",
+    "telephone_public": "01 99 00 06 23",
+    "site_web": "https://jardins-marly.example.org",
+    "photos": [
+      {
+        "fichier": "1",
+        "alt": "Une haie champêtre en fleurs",
+        "ordre": 1
+      },
+      {
+        "fichier": "2",
+        "alt": "Un jardin de pierres et de vivaces",
+        "ordre": 2
+      }
+    ],
+    "temoignages": []
+  },
+  {
+    "slug": "petits-pas-micro-creche",
+    "enseigne": "Petits Pas",
+    "categorie": "Enfance, éducation et formation",
+    "metier": "Micro-crèche",
+    "accroche": "Une micro-crèche de dix places, à taille humaine, avec sorties en forêt toute l'année.",
+    "presentation": "Dix enfants de dix semaines à trois ans, trois professionnelles, un jardin. Chaque jour, une sortie dehors, même sous la pluie, avec les bottes et les cirés qui vont bien.\n\nRepas préparés sur place avec des produits de saison. Visite possible sur rendez-vous.",
+    "histoire_etang": "",
+    "etiquettes": [
+      "accessible-pmr",
+      "boutique-physique"
+    ],
+    "zone": "L'Étang-la-Ville",
+    "horaires": "Du lundi au vendredi, 7 h 30 - 18 h 30.",
+    "maj": "2026-11-12",
+    "adresse": "5 rue des Écoles",
+    "code_postal": "78620",
+    "commune": "L'Étang-la-Ville",
+    "lat": 48.8629,
+    "lon": 2.0986,
+    "email_public": "contact@petits-pas-micro-creche.example.org",
+    "telephone_public": "01 99 00 07 24",
+    "photos": [
+      {
+        "fichier": "1",
+        "alt": "La salle de jeux et ses coins calmes",
+        "ordre": 1
+      }
+    ],
+    "temoignages": []
+  },
+  {
+    "slug": "repar-cafe-du-village",
+    "enseigne": "Repar'Café du Village",
+    "categorie": "Services aux particuliers",
+    "metier": "Atelier de réparation collaboratif",
+    "accroche": "Un samedi par mois, des bénévoles vous aident à réparer petit électroménager, vêtements et vélos.",
+    "presentation": "Apportez l'objet qui ne marche plus : des bénévoles vous aident à le diagnostiquer et à le réparer, sans rien vous facturer. Couture, électricité, mécanique douce.\n\nL'atelier est ouvert à tous, adhérents ou non.",
+    "histoire_etang": "L'idée est née au marché, un matin où trois voisins se sont plaints du même grille-pain.",
+    "etiquettes": [
+      "reparation-reemploi",
+      "accessible-pmr"
+    ],
+    "zone": "L'Étang-la-Ville",
+    "horaires": "Le premier samedi du mois, 14 h - 17 h.",
+    "maj": "2026-11-12",
+    "adresse": "Salle des Fêtes, place Pasteur",
+    "code_postal": "78620",
+    "commune": "L'Étang-la-Ville",
+    "lat": 48.8611,
+    "lon": 2.0947,
+    "email_public": "contact@repar-cafe-du-village.example.org",
+    "telephone_public": "01 99 00 08 25",
+    "facebook": "https://www.facebook.com/reparcafe.exemple",
+    "photos": [
+      {
+        "fichier": "1",
+        "alt": "Une table de réparation avec outils",
+        "ordre": 1
+      },
+      {
+        "fichier": "2",
+        "alt": "Une machine à coudre en action",
+        "ordre": 2
+      }
+    ],
+    "temoignages": [
+      {
+        "texte": "Mon grille-pain est reparti en vingt minutes, et j'ai appris pourquoi il avait lâché.",
+        "auteur": "Nadia R.",
+        "contexte": "venue en octobre",
+        "ordre": 1
+      },
+      {
+        "texte": "Un moment simple et utile, avec du café.",
+        "auteur": "Paul-Émile G.",
+        "contexte": "",
+        "ordre": 2
+      }
+    ]
+  },
+  {
+    "slug": "cave-et-fromagerie-du-coteau",
+    "enseigne": "Cave et Fromagerie du Coteau",
+    "categorie": "Commerces et boutiques",
+    "metier": "Cave et fromagerie",
+    "accroche": "Vignerons indépendants, fromages affinés par des fermiers, et un conseil franc sur l'accord du dimanche.",
+    "presentation": "Une cave de petits domaines, bio ou en conversion pour la plupart, et un comptoir de fromages de ferme affinés par leurs producteurs. Livraison à domicile dans la commune pour les commandes du week-end.\n\nDégustations gratuites le premier vendredi du mois.",
+    "histoire_etang": "",
+    "etiquettes": [
+      "produits-locaux",
+      "livraison",
+      "boutique-physique",
+      "bio-ou-label"
+    ],
+    "zone": "L'Étang-la-Ville",
+    "horaires": "Du mardi au samedi, 10 h - 13 h et 16 h - 19 h 30.",
+    "maj": "2026-11-12",
+    "adresse": "20 rue Principale",
+    "code_postal": "78620",
+    "commune": "L'Étang-la-Ville",
+    "lat": 48.8628,
+    "lon": 2.0921,
+    "email_public": "contact@cave-et-fromagerie-du-coteau.example.org",
+    "telephone_public": "01 99 00 09 26",
+    "site_web": "https://cave-coteau.example.org",
+    "photos": [
+      {
+        "fichier": "1",
+        "alt": "Le rayon de vins du comptoir",
+        "ordre": 1
+      },
+      {
+        "fichier": "2",
+        "alt": "Un plateau de fromages affinés",
+        "ordre": 2
+      }
+    ],
+    "temoignages": []
+  },
+  {
+    "slug": "studio-mosaique",
+    "enseigne": "Studio Mosaïque",
+    "categorie": "Services aux entreprises",
+    "metier": "Communication et identité visuelle",
+    "accroche": "Logos, sites et brochures pour les petites structures qui veulent un style, pas un gabarit.",
+    "presentation": "Je travaille avec des artisans, des associations et des petites entreprises : identité visuelle, site vitrine, plaquettes, supports d'événements. Un seul interlocuteur, des devis clairs, des fichiers qui vous appartiennent.\n\nPrestations à distance, avec rendez-vous à L'Étang ou à Paris.",
+    "histoire_etang": "J'habite le village depuis dix ans. J'ai commencé en dessinant l'affiche du vide-greniers.",
+    "etiquettes": [
+      "sur-rendez-vous"
+    ],
+    "zone": "Plus loin",
+    "horaires": "Du lundi au vendredi, 9 h - 18 h.",
+    "maj": "2026-11-12",
+    "email_public": "contact@studio-mosaique.example.org",
+    "telephone_public": "01 99 00 10 27",
+    "site_web": "https://studio-mosaique.example.org",
+    "linkedin": "https://www.linkedin.com/company/studio-mosaique-exemple",
+    "photos": [],
+    "temoignages": [
+      {
+        "texte": "Un logo qui nous ressemble, livré à l'heure, pour le budget annoncé.",
+        "auteur": "Delphine M.",
+        "contexte": "cliente, 2025",
+        "ordre": 1
+      }
+    ]
+  },
+  {
+    "slug": "cyclo-services-78",
+    "enseigne": "Cyclo Services 78",
+    "categorie": "Commerces et boutiques",
+    "metier": "Réparation et vente de vélos",
+    "accroche": "Atelier de réparation, vélos reconditionnés et vélos-cargos, à dix minutes de L'Étang.",
+    "presentation": "Entretien, réparation, vente de vélos reconditionnés garantis un an, et location de vélos-cargos pour les courses ou les enfants. Les devis sont gratuits et les pièces usagées sont réemployées quand c'est sûr.",
+    "histoire_etang": "",
+    "etiquettes": [
+      "reparation-reemploi",
+      "boutique-physique",
+      "accessible-pmr"
+    ],
+    "zone": "Proche (moins de 10 km)",
+    "horaires": "Du mardi au samedi, 9 h - 12 h 30 et 14 h - 19 h.",
+    "maj": "2026-11-12",
+    "adresse": "15 rue de Paris",
+    "code_postal": "78560",
+    "commune": "Le Port-Marly",
+    "lat": 48.8475,
+    "lon": 2.1166,
+    "email_public": "contact@cyclo-services-78.example.org",
+    "telephone_public": "01 99 00 11 28",
+    "site_web": "https://cyclo78.example.org",
+    "photos": [
+      {
+        "fichier": "1",
+        "alt": "Un vélo en cours de réparation sur le pied d'atelier",
+        "ordre": 1
+      }
+    ],
+    "temoignages": []
+  },
+  {
+    "slug": "atelier-terre-vive",
+    "enseigne": "Atelier Terre Vive",
+    "categorie": "Culture, loisirs et sport",
+    "metier": "Cours de poterie",
+    "accroche": "Cours de poterie pour adultes et enfants, cuissons collectives et stages pendant les vacances.",
+    "presentation": "Modelage, tournage, émaillage : des cours hebdomadaires en petit groupe, adultes le soir et enfants le mercredi. Les cuissons sont mutualisées pour limiter la consommation d'énergie, avec des émaux sans plomb.\n\nStages d'une journée pendant les vacances scolaires.",
+    "histoire_etang": "",
+    "etiquettes": [
+      "boutique-physique",
+      "accessible-pmr"
+    ],
+    "zone": "L'Étang-la-Ville",
+    "horaires": "Cours : lundi, mercredi et jeudi. Stages sur inscription.",
+    "maj": "2026-11-12",
+    "adresse": "2 chemin du Lavoir",
+    "code_postal": "78620",
+    "commune": "L'Étang-la-Ville",
+    "lat": 48.8643,
+    "lon": 2.1008,
+    "email_public": "contact@atelier-terre-vive.example.org",
+    "telephone_public": "01 99 00 12 29",
+    "instagram": "https://www.instagram.com/terrevive_exemple/",
+    "photos": [
+      {
+        "fichier": "1",
+        "alt": "Des bols en grès sur une étagère",
+        "ordre": 1
+      },
+      {
+        "fichier": "2",
+        "alt": "Un tour de potier à l'atelier",
+        "ordre": 2
+      }
+    ],
+    "temoignages": []
+  }
+]
