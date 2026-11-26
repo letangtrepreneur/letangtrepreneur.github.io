@@ -1,4 +1,4 @@
-# Fait à L'Étang
+# L'Étang'trepreneur
 
 Annuaire gratuit des commerçants, artisans et entrepreneurs de L'Étang-la-Ville. Site statique, sans cookie, sans service tiers (hors tuiles OpenStreetMap), ordre des fiches aléatoire renouvelé chaque jour.
 
