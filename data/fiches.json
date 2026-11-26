@@ -1,1 +1,49 @@
-[]
+[
+ {
+  "slug": "eau-de-vigne",
+  "enseigne": "eau de vigne",
+  "categorie": "Culture, loisirs et sport",
+  "metier": "Ateliers œnologiques",
+  "accroche": "eau de vigne réalise des ateliers œnologiques en entreprise et des dégustations et ventes de vins en réunion sur des vins à caractère…",
+  "presentation": "eau de vigne réalise des ateliers œnologiques en entreprise et des dégustations et ventes de vins en réunion sur des vins à caractère écologique.\n\nSavoir-faire : Informatique, gestion de projets,",
+  "histoire_etang": "Arrivé en 2005, j'ai d'abord habité rue Jean Mermoz, pour ensuite déménager sur les Sablons. Je suis entrepreneur à mon compte depuis 2017.",
+  "zone": "L'Étang-la-Ville",
+  "telephone_public": "0651669682",
+  "email_public": "romain.miller@eaudevigne.com",
+  "site_web": "https://eaudevigne.com/",
+  "facebook": "https://www.facebook.com/romain.millerpro.3/",
+  "instagram": "https://www.instagram.com/romainmillerpro/",
+  "linkedin": "https://www.linkedin.com/in/romainmiller/",
+  "autre_lien": "https://twitter.com/romainmiller",
+  "etiquettes": [],
+  "photos": [
+   {
+    "fichier": "p26f334cdb6",
+    "alt": "Photo de eau de vigne",
+    "ordre": 1
+   },
+   {
+    "fichier": "p99cf30d833",
+    "alt": "Photo de eau de vigne",
+    "ordre": 2
+   },
+   {
+    "fichier": "pd48584ce4c",
+    "alt": "Photo de eau de vigne",
+    "ordre": 3
+   },
+   {
+    "fichier": "p633c76a5f0",
+    "alt": "Photo de eau de vigne",
+    "ordre": 4
+   },
+   {
+    "fichier": "pc658923e85",
+    "alt": "Photo de eau de vigne",
+    "ordre": 5
+   }
+  ],
+  "temoignages": [],
+  "maj": "2026-11-26"
+ }
+]
