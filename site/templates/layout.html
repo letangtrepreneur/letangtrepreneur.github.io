@@ -10,16 +10,18 @@
 {{{csp}}}
 <link rel="stylesheet" href="{{root}}assets/theme.css">
 <link rel="stylesheet" href="{{root}}assets/site.css">
+<link rel="icon" type="image/png" href="{{root}}assets/img/favicon.png">
 {{{head_extra}}}
 </head>
 <body>
 <a class="lien-evitement" href="#principal">Aller au contenu</a>
 <header class="entete">
   <div class="contenu">
-    <a class="logo" href="{{root}}">{{NOM}}<small></small></a>
+    <a class="logo" href="{{root}}"><img src="{{root}}assets/img/logo.png" alt="L'Étang'trepreneur, retour à l'accueil" width="194" height="120"></a>
     <nav aria-label="Navigation principale">
       <ul class="menu">
-        <li><a href="{{root}}"{{{cur_accueil}}}>L'annuaire</a></li>
+        <li><a href="{{root}}"{{{cur_accueil}}}>L'annuaire public</a></li>
+        <li><a href="{{root}}annuaire-prive/"{{{cur_prive}}}>L'annuaire privé</a></li>
         <li><a href="{{root}}inscrire/"{{{cur_inscrire}}}>Inscrire mon activité</a></li>
         <li><a href="{{root}}modifier/"{{{cur_modifier}}}>Modifier ma fiche</a></li>
         <li><a href="{{root}}a-propos/"{{{cur_apropos}}}>À propos</a></li>
@@ -33,6 +35,8 @@
 <footer class="pied">
   <div class="contenu">
     <ul>
+      <li><a href="{{root}}annuaire-public/">L'annuaire public, mode d'emploi</a></li>
+      <li><a href="{{root}}annuaire-prive/">L'annuaire privé, mode d'emploi</a></li>
       <li><a href="{{root}}a-propos/">À propos</a></li>
       <li><a href="{{root}}mentions-legales/">Mentions légales</a></li>
       <li><a href="{{root}}confidentialite/">Confidentialité</a></li>

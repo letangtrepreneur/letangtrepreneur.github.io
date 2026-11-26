@@ -1,7 +1,7 @@
 <div class="contenu page">
   <h1>Annuaire privé des entrepreneurs</h1>
   <div id="p-demande">
-    <p>Cet annuaire est réservé aux membres du groupe des entrepreneurs de L'Étang-la-Ville. L'appartenance est validée au cas par cas, après inscription et consentement à l'annuaire privé. Saisissez l'adresse e-mail de votre fiche : si vous êtes membre, un lien d'accès personnel, valable 24 heures, vous sera envoyé.</p>
+    <p>Cet annuaire est réservé aux membres du groupe des entrepreneurs de L'Étang-la-Ville. L'appartenance est validée au cas par cas, après inscription et consentement à l'annuaire privé. Saisissez l'adresse e-mail de votre fiche : si vous êtes membre, un lien d'accès personnel, valable 24 heures, vous sera envoyé. <a href="{{root}}annuaire-prive/">Comment fonctionne l'annuaire privé</a></p>
     <form id="form-membre" novalidate>
       <div class="champ"><label for="p-email">Votre e-mail</label><input id="p-email" name="email" type="email" required maxlength="120" autocomplete="email"></div>
       <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="entreprise_web" tabindex="-1" autocomplete="off"></label></div>
@@ -19,6 +19,6 @@
       <div class="champ"><label for="p-cat">Catégorie</label><select id="p-cat"><option value="">Toutes</option></select></div>
     </div>
     <p id="p-compte" class="compte" aria-live="polite"></p>
-    <div id="p-cartes"></div>
+    <div id="p-cartes" class="membres"></div>
   </div>
 </div>

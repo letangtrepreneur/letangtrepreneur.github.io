@@ -1,5 +1,6 @@
 /* Formulaires : inscription (/inscrire/) et modification (/modifier/), même code.
-   - 3 étapes, validation à chaque étape ;
+   - 5 étapes en deux pages : annuaire public (activité, photos) puis annuaire privé (portrait, compétences) ;
+   - validation à chaque étape ;
    - photos redimensionnées dans le navigateur (WebP 1600 px, qualité 0,82, repli JPEG) ;
    - anti-robots : champ piège, délai minimal de 4 s, Turnstile si une clé est configurée ;
    - le jeton de modification reste dans le fragment (#t=...) et part en en-tête. */
@@ -11,10 +12,11 @@
   var MAX_PHOTOS = 6, MAX_TEMOIGNAGES = 5, DELAI_MIN = 4000, MAX_OCTETS = 2 * 1024 * 1024;
   var CHAMPS_TEXTE = ['prenom', 'nom', 'email_contact', 'tel_prive', 'enseigne', 'categorie', 'metier', 'accroche', 'presentation',
     'histoire_etang', 'adresse', 'code_postal', 'commune', 'zone', 'horaires', 'telephone_public', 'email_public', 'site_web',
-    'facebook', 'instagram', 'linkedin', 'autre_lien'];
+    'facebook', 'instagram', 'linkedin', 'autre_lien', 'competences', 'centres_interet', 'recherche'];
+  var PORTRAIT_MAX = 600;
   var token = null, statutFiche = null;
-  var photos = [], temoignages = [];
-  var etape = 1, nbEtapes = 3, turnstileJeton = '';
+  var photos = [], temoignages = [], portrait = null;
+  var etape = 1, nbEtapes = 5, turnstileJeton = '';
 
   /* ---------- Demande du lien de modification ---------- */
   if (formLien) {
@@ -58,6 +60,8 @@
   var mode = form.getAttribute('data-mode');
   var $ = function (id) { return document.getElementById(id); };
   var sections = [].slice.call(form.querySelectorAll('fieldset.etape'));
+  nbEtapes = sections.length;
+  var volets = [].slice.call(form.querySelectorAll('[data-volet-lien]'));
 
   /* ---------- Étapes ---------- */
   function afficherEtape(n, sansFocus) {
@@ -67,6 +71,12 @@
     $('btn-prec').hidden = n === 1;
     $('btn-suiv').hidden = n === nbEtapes;
     $('btn-envoi').hidden = n !== nbEtapes;
+    var volet = sections[n - 1].getAttribute('data-volet');
+    volets.forEach(function (li) {
+      if (li.getAttribute('data-volet-lien') === volet) li.setAttribute('aria-current', 'step');
+      else li.removeAttribute('aria-current');
+    });
+    if (n === nbEtapes) recap();
     var leg = sections[n - 1].querySelector('legend');
     if (leg && !sansFocus) { leg.setAttribute('tabindex', '-1'); leg.focus(); }
   }
@@ -195,6 +205,62 @@
     }, Promise.resolve());
   });
 
+  /* ---------- Portrait (annuaire privé) ---------- */
+  function reduirePortrait(file) {
+    return new Promise(function (resolve, reject) {
+      if (!/^image\//.test(file.type)) return reject(new Error('« ' + file.name + ' » n\'est pas une image.'));
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        URL.revokeObjectURL(url);
+        var w = img.naturalWidth, h = img.naturalHeight, k = Math.max(w, h) > PORTRAIT_MAX ? PORTRAIT_MAX / Math.max(w, h) : 1;
+        var c = document.createElement('canvas');
+        c.width = Math.round(w * k); c.height = Math.round(h * k);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        var fini = function (b) {
+          if (!b) return reject(new Error('« ' + file.name + ' » n\'a pas pu être réduite.'));
+          var fr = new FileReader();
+          fr.onload = function () { resolve(fr.result); };
+          fr.onerror = function () { reject(new Error('Lecture impossible.')); };
+          fr.readAsDataURL(b);
+        };
+        c.toBlob(function (b) { if (b && b.type === 'image/webp') fini(b); else c.toBlob(fini, 'image/jpeg', 0.85); }, 'image/webp', 0.85);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('« ' + file.name + ' » est illisible.')); };
+      img.src = url;
+    });
+  }
+  function dessinerPortrait() {
+    var zone = $('zone-portrait');
+    zone.textContent = '';
+    if (!portrait) return;
+    zone.appendChild(E.el('div', { class: 'element' }, [
+      E.el('div', { class: 'rang' }, [
+        E.el('img', { src: portrait.apercu, alt: '', class: 'portrait' }),
+        E.el('p', { text: portrait.data ? 'Nouvelle photo, enregistrée à l\'envoi du formulaire.' : 'Votre photo actuelle.' })
+      ]),
+      E.el('div', { class: 'actions' }, [bouton('Retirer ma photo', function () { portrait = null; dessinerPortrait(); })])
+    ]));
+  }
+  $('f-portrait').addEventListener('change', function (ev) {
+    var f = ev.target.files[0];
+    ev.target.value = '';
+    if (!f) return;
+    reduirePortrait(f).then(function (d) { portrait = { data: d, apercu: d }; dessinerPortrait(); })
+      .catch(function (e) { E.show($('statut'), e.message, 'erreur'); });
+  });
+
+  /* ---------- Récapitulatif avant envoi ---------- */
+  function recap() {
+    var r = $('recap-volets'), pub = form.consent_public.checked, priv = form.consent_prive.checked;
+    r.textContent = '';
+    var t = pub && priv ? 'Votre fiche figurera dans les deux annuaires : la page publique pour les habitants, la page privée pour les membres du groupe.'
+      : pub ? 'Votre fiche figurera dans l\'annuaire public seulement. Les informations de la page privée ne seront visibles de personne.'
+      : priv ? 'Votre fiche figurera dans l\'annuaire privé seulement. Rien ne sera publié sur l\'annuaire public.'
+      : 'Vous n\'avez coché aucun des deux annuaires : revenez à la page publique (étape 3) ou à la page privée (étape 4) pour cocher au moins une case.';
+    r.appendChild(E.el('p', { text: t }));
+    r.className = 'message' + (pub || priv ? ' ok' : ' erreur');
+  }
+
   /* ---------- Témoignages ---------- */
   function dessinerTemoignages() {
     var liste = $('liste-temoignages');
@@ -235,7 +301,8 @@
     $('aide-email').textContent = 'Cette adresse identifie votre fiche : elle ne peut pas être modifiée ici. Pour en changer, écrivez-nous.';
     photos = (d.photos || []).map(function (p) { return { id: p.id, apercu: p.data, alt: p.alt || '' }; });
     temoignages = (d.temoignages || []).map(function (t) { return { texte: t.texte, auteur: t.auteur, contexte: t.contexte || '' }; });
-    dessinerPhotos(); dessinerTemoignages();
+    portrait = d.portrait ? { apercu: d.portrait } : null;
+    dessinerPhotos(); dessinerTemoignages(); dessinerPortrait();
     majCategorie();
     [].forEach.call(form.querySelectorAll('input[name=etiquettes]'), function (c) { c.checked = (f.etiquettes || []).indexOf(c.value) >= 0; });
     form.consent_public.checked = !!f.consentement_public;
@@ -265,6 +332,8 @@
       fiche: fiche,
       photos: photos.map(function (p) { return p.data ? { data: p.data, data800: p.data800, alt: p.alt.trim() } : { id: p.id, alt: p.alt.trim() }; }),
       temoignages: temoignages.map(function (t) { return { texte: t.texte.trim(), auteur: t.auteur.trim(), contexte: (t.contexte || '').trim() }; }),
+      /* Portrait de l'annuaire privé : nouvelle image, conservation de l'actuelle, ou null pour l'effacer. Jamais publié sur GitHub. */
+      portrait: portrait ? (portrait.data ? { data: portrait.data } : { garder: true }) : null,
       consentement: { conditions: form.conditions.checked, attestation: form.attestation.checked, public: form.consent_public.checked, prive: form.consent_prive.checked },
       hp: form.entreprise_web.value, t: Date.now() - E.t0, turnstile: turnstileJeton
     };
@@ -317,5 +386,5 @@
     });
   }
 
-  dessinerPhotos(); dessinerTemoignages(); afficherEtape(1, true);
+  dessinerPhotos(); dessinerTemoignages(); dessinerPortrait(); afficherEtape(1, true);
 })();

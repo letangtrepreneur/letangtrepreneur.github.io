@@ -85,7 +85,7 @@ for (const l of ['A', 'B', 'C']) if (l !== cfg.CHARTE && rapports[l].echecs.leng
 
 /* ------------------------------------------------------------------ données et garde-fou §4.5 */
 const PRIVES = new Set(['statut', 'prenom', 'nom', 'email_contact', 'tel_prive', 'adresse_publique', 'consentement_publication_le', 'attestation_temoignages_le',
-  'token_hash', 'token_expire_le', 'regen_demandee', 'airtable_id', 'cree_le', 'maj_le', 'publie_le', 'id', 'created_at', 'updated_at']);
+  'consentement_prive_le', 'portrait', 'competences', 'centres_interet', 'recherche', 'token_hash', 'token_expire_le', 'regen_demandee', 'airtable_id', 'cree_le', 'maj_le', 'publie_le', 'id', 'created_at', 'updated_at']);
 const PUBLICS = new Set(['slug', 'enseigne', 'categorie', 'metier', 'accroche', 'presentation', 'histoire_etang', 'etiquettes', 'adresse', 'code_postal', 'commune', 'zone',
   'lat', 'lon', 'horaires', 'telephone_public', 'email_public', 'site_web', 'facebook', 'instagram', 'linkedin', 'autre_lien', 'photos', 'temoignages', 'maj']);
 const PUBLICS_PHOTO = new Set(['fichier', 'alt', 'ordre']);
@@ -207,7 +207,7 @@ function page({ chemin, profondeur, titre, description, content, cur = '', robot
     ...commun, titre, description, root, canonique: url,
     robots: robots ? '<meta name="robots" content="noindex,nofollow">' : '',
     csp: csp(formulaire && !!TURNSTILE), head_extra,
-    cur_accueil: cur === 'accueil' ? ' aria-current="page"' : '', cur_inscrire: cur === 'inscrire' ? ' aria-current="page"' : '',
+    cur_accueil: cur === 'accueil' ? ' aria-current="page"' : '', cur_prive: cur === 'prive' ? ' aria-current="page"' : '', cur_inscrire: cur === 'inscrire' ? ' aria-current="page"' : '',
     cur_modifier: cur === 'modifier' ? ' aria-current="page"' : '', cur_apropos: cur === 'apropos' ? ' aria-current="page"' : '',
     content: content.split('{{ROOT}}').join(root),
     cfg: jsonScript(clientCfg),
@@ -317,7 +317,7 @@ const formulaire = (mode, root) => rendre(TPL('form-fiche.html'), formVars(mode,
 page({
   chemin: 'inscrire/index.html', profondeur: 1, cur: 'inscrire', formulaire: true,
   titre: `Inscrire mon activité — ${cfg.NOM}`, description: "Inscrivez gratuitement votre activité dans l'annuaire de L'Étang-la-Ville.",
-  content: rendre(TPL('inscrire.html'), { form: formulaire('inscrire', '../') }, 'inscrire.html'), scripts: ['forms.js']
+  content: rendre(TPL('inscrire.html'), { root: '../', form: formulaire('inscrire', '../') }, 'inscrire.html'), scripts: ['forms.js']
 });
 page({
   chemin: 'modifier/index.html', profondeur: 1, cur: 'modifier', formulaire: true, robots: true, sitemap: false,
@@ -325,9 +325,23 @@ page({
   content: rendre(TPL('modifier.html'), { form: formulaire('modifier', '../') }, 'modifier.html'), scripts: ['forms.js']
 });
 page({
-  chemin: 'membres/index.html', profondeur: 1, robots: true, sitemap: false,
+  chemin: 'membres/index.html', profondeur: 1, cur: 'prive', robots: true, sitemap: false,
   titre: `Annuaire privé — ${cfg.NOM}`, description: 'Annuaire privé réservé aux membres.',
   content: rendre(TPL('membres.html'), { root: '../' }, 'membres.html'), scripts: ['membres.js']
+});
+/* pages d'introduction des deux annuaires */
+const quiVoitQuoi = TPL('qui-voit-quoi.html');
+page({
+  chemin: 'annuaire-public/index.html', profondeur: 1, cur: 'accueil',
+  titre: `L'annuaire public, mode d'emploi — ${cfg.NOM}`,
+  description: "Ce que montre l'annuaire public des commerçants, artisans et entrepreneurs de L'Étang-la-Ville, et comment y inscrire son activité.",
+  content: rendre(TPL('annuaire-public.html'), { root: '../', qui_voit_quoi: quiVoitQuoi }, 'annuaire-public.html')
+});
+page({
+  chemin: 'annuaire-prive/index.html', profondeur: 1, cur: 'prive',
+  titre: `L'annuaire privé des entrepreneurs, mode d'emploi — ${cfg.NOM}`,
+  description: "L'annuaire réservé aux membres du groupe des entrepreneurs de L'Étang-la-Ville : à quoi il sert, qui y a accès, ce qu'on y met.",
+  content: rendre(TPL('annuaire-prive.html'), { root: '../', qui_voit_quoi: quiVoitQuoi }, 'annuaire-prive.html')
 });
 page({
   chemin: 'confirmer/index.html', profondeur: 1, robots: true, sitemap: false,
@@ -370,6 +384,7 @@ for (const m of charte.css.matchAll(/url\("fonts\/([^"]+)"\)/g)) copier(path.joi
 copier(path.join(SITE, 'css', 'base.css'), 'assets/site.css');
 for (const j of ['util.js', 'home.js', 'fiche.js', 'forms.js', 'confirmer.js', 'membres.js']) copier(path.join(SITE, 'js', j), 'assets/' + j);
 copierDossier(path.join(SITE, 'assets', 'vendor', 'leaflet'), 'assets/vendor/leaflet');
+copierDossier(path.join(SITE, 'assets', 'img'), 'assets/img');
 for (const l of fs.readdirSync(path.join(ROOT, 'licences'))) copier(path.join(ROOT, 'licences', l), 'assets/licences/' + l);
 
 /* images des fiches publiées */
