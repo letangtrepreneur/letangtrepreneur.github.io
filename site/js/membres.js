@@ -20,16 +20,27 @@
   function texte(tag, t, cls) { var e = E.el(tag, cls ? { class: cls } : {}); e.textContent = t; return e; }
   function carte(x) {
     var nom = [x.prenom, x.nom].filter(Boolean).join(' ');
-    var c = E.el('article', { class: 'element' });
-    c.appendChild(texte('h3', x.enseigne + (nom ? ' · ' + nom : '')));
+    var c = E.el('article', { class: 'element membre' });
+    /* Portrait : uniquement en data:image (la CSP n'autorise pas d'autre origine pour les images). */
+    if (typeof x.portrait === 'string' && /^data:image\/(webp|jpeg|png);base64,/.test(x.portrait)) {
+      c.appendChild(E.el('img', { class: 'portrait', src: x.portrait, alt: 'Portrait de ' + (nom || x.enseigne), width: '96', height: '96', loading: 'lazy' }));
+    } else {
+      c.appendChild(E.el('div', { class: 'portrait initiale', 'aria-hidden': 'true', text: ((x.prenom || x.enseigne || '?')[0] || '?').toUpperCase() }));
+    }
+    c.appendChild(texte('h3', (nom || x.enseigne) + (nom && x.enseigne ? ' · ' + x.enseigne : '')));
     c.appendChild(texte('p', [x.categorie, x.metier].filter(Boolean).join(' · '), 'categorie'));
     if (x.accroche) c.appendChild(texte('p', x.accroche));
     var ul = E.el('ul', { class: 'coordonnees' });
     if (x.email_contact) { var a = E.el('a', { href: 'mailto:' + x.email_contact }); a.textContent = x.email_contact; var li = E.el('li'); li.appendChild(a); ul.appendChild(li); }
     if (x.tel_prive) { var t = E.el('a', { href: 'tel:' + x.tel_prive.replace(/[^+0-9]/g, '') }); t.textContent = x.tel_prive; var l2 = E.el('li'); l2.appendChild(t); ul.appendChild(l2); }
     c.appendChild(ul);
-    if (x.presentation) { var d = E.el('details'); d.appendChild(texte('summary', 'Compétences et présentation')); d.appendChild(texte('p', x.presentation)); c.appendChild(d); }
-    if (x.centres_interet) c.appendChild(texte('p', 'Centres d\'intérêt : ' + x.centres_interet));
+    var dl = E.el('dl', { class: 'prive' });
+    [['competences', 'Compétences'], ['centres_interet', 'Centres d\'intérêt'], ['recherche', 'Cherche ou propose']].forEach(function (k) {
+      if (!x[k[0]]) return;
+      dl.appendChild(texte('dt', k[1])); dl.appendChild(texte('dd', x[k[0]]));
+    });
+    if (dl.firstChild) c.appendChild(dl);
+    if (x.presentation) { var d = E.el('details'); d.appendChild(texte('summary', 'Présentation de l\'activité')); d.appendChild(texte('p', x.presentation)); c.appendChild(d); }
     return c;
   }
   function afficher() {
@@ -38,7 +49,7 @@
     var n = 0;
     membres.forEach(function (x) {
       if (cat && x.categorie !== cat) return;
-      var blob = E.norm([x.prenom, x.nom, x.enseigne, x.categorie, x.metier, x.accroche, x.presentation, x.centres_interet, x.commune].join(' '));
+      var blob = E.norm([x.prenom, x.nom, x.enseigne, x.categorie, x.metier, x.accroche, x.presentation, x.competences, x.centres_interet, x.recherche, x.commune].join(' '));
       if (q && blob.indexOf(q) < 0) return;
       zone.appendChild(carte(x)); n++;
     });

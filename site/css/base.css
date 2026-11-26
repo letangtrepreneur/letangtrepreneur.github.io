@@ -21,9 +21,9 @@ p{margin:0 0 1em}
 /* En-tête */
 .entete{background:var(--c-fond);border-bottom:1px solid var(--c-bordure)}
 .entete .contenu{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 1.5rem;padding-top:.9rem;padding-bottom:.9rem}
-.logo{font-family:var(--f-titre);font-weight:var(--poids-titre);font-size:1.6rem;line-height:1.1;color:var(--c-primaire);text-decoration:none}
-.logo small{display:block;font-family:var(--f-texte);font-size:.82rem;font-weight:400;color:var(--c-texte2);margin-top:.15rem}
-.logo small::before{content:var(--signature)}
+.logo{display:block;line-height:0;text-decoration:none}
+.logo img{height:4.2rem;width:auto}
+@media(min-width:40rem){.logo img{height:4.8rem}}
 .menu{display:flex;flex-wrap:wrap;gap:.3rem 1.3rem;list-style:none;margin:0;padding:0}
 .menu a{color:var(--c-texte);text-decoration:none;padding:.35rem 0;border-bottom:2px solid transparent}
 .menu a:hover,.menu a[aria-current="page"]{border-bottom-color:var(--c-secondaire)}
@@ -107,7 +107,7 @@ blockquote.temoignage footer{font-style:normal;font-size:.92rem;color:var(--c-te
 .signaler form{margin-top:1rem;max-width:34rem}
 
 /* Formulaires */
-.page{padding:1.6rem 0 3rem}
+.page{padding-top:1.6rem;padding-bottom:3rem}
 .etapes{font-weight:600;margin:0 0 1rem;color:var(--c-texte2)}
 fieldset.etape{border:0;padding:0;margin:0 0 1rem}
 fieldset.etape>legend{font-family:var(--f-titre);font-weight:var(--poids-titre);font-size:1.4rem;padding:0;margin-bottom:.8rem}
@@ -140,3 +140,38 @@ fieldset.etape>legend{font-family:var(--f-titre);font-weight:var(--poids-titre);
 .legal ul{padding-left:1.2rem}
 noscript .message{margin:1rem 0}
 .cases>legend{grid-column:1/-1;padding:0}
+
+/* Logo, liens du bandeau */
+.bandeau a{color:var(--c-sur-primaire)}
+
+/* Deux pages de la fiche : annuaire public, annuaire privé */
+.volets{display:grid;gap:.6rem;grid-template-columns:1fr;list-style:none;margin:0 0 1.2rem;padding:0}
+@media(min-width:40rem){.volets{grid-template-columns:1fr 1fr}}
+.volets li{border:1.5px solid var(--c-bordure);border-radius:12px;padding:.6rem .9rem;background:var(--c-carte);font-size:.92rem;color:var(--c-texte2)}
+.volets li strong{display:block;color:var(--c-texte);font-family:var(--f-titre);font-weight:var(--poids-titre);font-size:1.05rem}
+.volets li[aria-current="step"]{border-color:var(--c-primaire);box-shadow:inset 0 0 0 1px var(--c-primaire)}
+.intro-volet{border-left:4px solid var(--c-secondaire);background:var(--c-carte);border-radius:0 12px 12px 0;padding:.8rem 1rem;margin:0 0 1.4rem}
+.intro-volet.prive{border-left-color:var(--c-primaire)}
+.intro-volet p{margin:0}
+img.portrait,.portrait.initiale{width:6rem;height:6rem;object-fit:cover;border-radius:50%;flex:none}
+.element img.portrait{width:6rem;height:6rem;border-radius:50%}
+
+/* Annuaire privé : cartes des membres */
+.membres{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr))}
+.membres .element{margin:0;align-content:start}
+.membres .element h3,.membres .element p{margin:0}
+.portrait.initiale{display:flex;align-items:center;justify-content:center;background:var(--c-pastille1-fond);color:var(--c-pastille1-texte);font-family:var(--f-titre);font-size:2.4rem}
+dl.prive{margin:0;font-size:.95rem}
+dl.prive dt{font-weight:600;font-size:.85rem;color:var(--c-texte2);margin-top:.4rem}
+dl.prive dd{margin:0;white-space:pre-line}
+
+/* Pages d'introduction des annuaires */
+.surtitre{text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;color:var(--c-texte2);margin:0 0 .3rem}
+.chapeau{font-size:1.2rem}
+.actions-intro{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.4rem 0 .6rem}
+.tableau-defile{overflow-x:auto;margin:2rem 0}
+.qui-voit-quoi{border-collapse:collapse;width:100%;background:var(--c-carte);font-size:.95rem}
+.qui-voit-quoi caption{text-align:left;font-family:var(--f-titre);font-weight:var(--poids-titre);font-size:1.3rem;margin-bottom:.6rem}
+.qui-voit-quoi th,.qui-voit-quoi td{border:1px solid var(--c-bordure);padding:.5rem .7rem;text-align:left;vertical-align:top}
+.qui-voit-quoi thead th{background:var(--c-pastille1-fond);color:var(--c-pastille1-texte)}
+.qui-voit-quoi tbody th{font-weight:400}

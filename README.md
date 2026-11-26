@@ -11,7 +11,7 @@ Ce dépôt est **public** : il ne contient que des données déjà publiées par
 | `site/config.json` | `SITE_URL`, `CHARTE` (`A`, `B` ou `C`), `WEBHOOK_BASE`, clé Turnstile (facultative), contact |
 | `site/build.mjs` | génère `dist/` (Node 20+, aucune dépendance) |
 | `site/templates/`, `site/css/`, `site/js/` | gabarits, styles (3 chartes dans `site/css/chartes/`), scripts |
-| `site/assets/` | polices WOFF2 (licence OFL) et Leaflet, auto-hébergés ; licences dans `licences/` |
+| `site/assets/` | polices WOFF2 (licence OFL) et Leaflet, auto-hébergés ; licences dans `licences/` ; logo et favicon dans `img/` |
 | `data/fiches.json` | fiches publiées (champs publics seulement), écrit par le workflow n8n `annuaire - publier - v1` |
 | `images/<slug>/<n>-800.webp`, `-1600.webp` | photos des fiches publiées |
 | `data/exemple.json`, `data/exemple-images/` | 12 fiches fictives pour la recette locale |
@@ -29,7 +29,7 @@ node site/build.mjs                    # construit avec data/fiches.json (le vra
 Options de `build.mjs` : `--data <fichier>`, `--images <dossier>`, `--out <dossier>`, `--no-csp`.
 
 Le build **échoue** (code 1) si :
-- un champ privé (`email_contact`, `tel_prive`, `prenom`, `nom`, `token_hash`, `statut`…) ou un champ inconnu apparaît dans les données ;
+- un champ privé (`email_contact`, `tel_prive`, `prenom`, `nom`, `portrait`, `competences`, `centres_interet`, `recherche`, `token_hash`, `statut`…) ou un champ inconnu apparaît dans les données ;
 - un contraste de la charte retenue passe sous 4,5:1 (3:1 pour les éléments non textuels) ;
 - une fiche est incomplète, une photo référencée manque, une URL n'est pas en `http(s)`.
 

@@ -2,9 +2,14 @@
   <p class="etapes" id="etapes" aria-live="polite"></p>
   <p class="aide">Les champs marqués d'un astérisque (*) sont obligatoires.</p>
 
-  <fieldset class="etape" data-step="1" data-titre="Vos coordonnées">
+  <ol class="volets" aria-label="Les deux pages de votre fiche">
+    <li data-volet-lien="public"><strong>Page annuaire public</strong><span>ce que voient les habitants : activité, photos, site web</span></li>
+    <li data-volet-lien="prive"><strong>Page annuaire privé</strong><span>entre entrepreneurs : votre photo, vos compétences, ce que vous cherchez</span></li>
+  </ol>
+
+  <fieldset class="etape" data-step="1" data-volet="commun" data-titre="Vos coordonnées">
     <legend>Vos coordonnées (privées)</legend>
-    <p class="aide">Ces informations ne sont jamais publiées sur l'annuaire public. Elles servent à vous écrire, à vous envoyer votre lien de modification et, si vous le souhaitez, à figurer dans l'annuaire privé des entrepreneurs (voir dernière étape).</p>
+    <p class="aide">Ces informations ne sont jamais publiées sur l'annuaire public. Elles servent à vous écrire, à vous envoyer votre lien de modification et, si vous le souhaitez, à vous retrouver dans l'annuaire privé des entrepreneurs.</p>
     <div class="grille2">
       <div class="champ"><label for="f-prenom">Prénom *</label><input id="f-prenom" name="prenom" type="text" required maxlength="60" autocomplete="given-name"></div>
       <div class="champ"><label for="f-nom">Nom *</label><input id="f-nom" name="nom" type="text" required maxlength="60" autocomplete="family-name"></div>
@@ -15,8 +20,11 @@
     </div>
   </fieldset>
 
-  <fieldset class="etape" data-step="2" data-titre="Votre activité" hidden>
-    <legend>Votre activité</legend>
+  <fieldset class="etape" data-step="2" data-volet="public" data-titre="Annuaire public · votre activité" hidden>
+    <legend>Page annuaire public : votre activité</legend>
+    <div class="intro-volet public">
+      <p><strong>L'annuaire public</strong> est ouvert à tous, d'abord aux habitants de L'Étang-la-Ville qui cherchent un boulanger, un plombier ou une prof de yoga près de chez eux. Mettez ici ce que vous avez envie qu'on voie et qu'on vienne chercher : ce que vous faites, où et quand, votre site, vos réseaux. Les champs obligatoires de cette page servent aussi à présenter votre activité dans l'annuaire privé. <a href="{{root}}annuaire-public/" target="_blank" rel="noopener">Comment fonctionne l'annuaire public</a></p>
+    </div>
     <div class="champ"><label for="f-enseigne">Nom de l'enseigne *</label><input id="f-enseigne" name="enseigne" type="text" required maxlength="80"></div>
     <div class="grille2">
       <div class="champ"><label for="f-categorie">Catégorie *</label><select id="f-categorie" name="categorie" required><option value="">Choisir…</option>{{{categorie_options}}}</select></div>
@@ -56,11 +64,11 @@
     <div class="champ"><label for="f-autre">Autre lien</label><input id="f-autre" name="autre_lien" type="text" maxlength="200"></div>
   </fieldset>
 
-  <fieldset class="etape" data-step="3" data-titre="Photos et témoignages" hidden>
-    <legend>Photos et témoignages</legend>
+  <fieldset class="etape" data-step="3" data-volet="public" data-titre="Annuaire public · photos de votre activité" hidden>
+    <legend>Page annuaire public : photos et témoignages</legend>
     <div class="champ">
-      <label for="f-photos">Photos (6 au maximum)</label>
-      <p class="aide">La première est la vignette de votre fiche. Chaque photo est réduite sur votre appareil avant l'envoi, et les données cachées de l'image (lieu de prise de vue, par exemple) sont supprimées. Ne publiez que des photos dont vous détenez les droits. Un texte alternatif est demandé pour chacune : il décrit l'image aux personnes qui ne la voient pas.</p>
+      <label for="f-photos">Photos de votre activité (6 au maximum)</label>
+      <p class="aide">Votre boutique, votre atelier, vos produits, un chantier, une séance : ce qui donne envie de pousser la porte. Gardez votre photo personnelle pour la page de l'annuaire privé. La première photo est la vignette de votre fiche. Chaque photo est réduite sur votre appareil avant l'envoi, et les données cachées de l'image (lieu de prise de vue, par exemple) sont supprimées. Ne publiez que des photos dont vous détenez les droits. Un texte alternatif est demandé pour chacune : il décrit l'image aux personnes qui ne la voient pas.</p>
       <input type="file" id="f-photos" accept="image/*" multiple>
       <div id="liste-photos" aria-live="polite"></div>
     </div>
@@ -70,11 +78,31 @@
       <div id="liste-temoignages"></div>
       <button type="button" class="bouton secondaire" id="ajout-temoignage">Ajouter un témoignage</button>
     </div>
-    <p class="aide">Où souhaitez-vous apparaître ? Cochez l'une des deux cases, ou les deux. Vous pouvez changer d'avis à tout moment.</p>
-    <div class="champ case"><input type="checkbox" id="f-pub" name="consent_public"><label for="f-pub">J'accepte d'être publié(e) dans l'<strong>annuaire public</strong> de « Fait à L'Étang » (ouvert à tous), selon les <a href="{{root}}conditions-de-publication/" target="_blank" rel="noopener">conditions de publication</a>.</label></div>
-    <div class="champ case"><input type="checkbox" id="f-priv" name="consent_prive"><label for="f-priv">J'accepte d'être publié(e) dans l'<strong>annuaire privé des entrepreneurs</strong>, réservé aux membres du groupe, avec mon prénom et nom, mon e-mail et mon téléphone privés, mes compétences et mes centres d'intérêts. L'appartenance au groupe est validée au cas par cas ; elle est donnée en priorité aux activités dont le siège est à L'Étang-la-Ville.</label></div>
-    <div class="champ case"><input type="checkbox" id="f-conditions" name="conditions" required><label for="f-conditions">J'ai lu et j'accepte les <a href="{{root}}conditions-de-publication/" target="_blank" rel="noopener">conditions de publication</a>. *</label></div>
     <div class="champ case" id="bloc-attestation" hidden><input type="checkbox" id="f-attestation" name="attestation"><label for="f-attestation">Les témoignages sont authentiques : je les ai recueillis avec l'accord de leurs auteurs. *</label></div>
+    <div class="champ case"><input type="checkbox" id="f-pub" name="consent_public"><label for="f-pub">J'accepte d'être publié(e) dans l'<strong>annuaire public</strong> (ouvert à tous), selon les <a href="{{root}}conditions-de-publication/" target="_blank" rel="noopener">conditions de publication</a>.</label></div>
+  </fieldset>
+
+  <fieldset class="etape" data-step="4" data-volet="prive" data-titre="Annuaire privé · votre fiche membre" hidden>
+    <legend>Page annuaire privé : entre entrepreneurs</legend>
+    <div class="intro-volet prive">
+      <p><strong>L'annuaire privé</strong> n'est visible que des membres du groupe des entrepreneurs de L'Étang-la-Ville. Il sert à se reconnaître au marché ou à la boulangerie, à savoir qui sait faire quoi et à s'entraider. Tout est facultatif sur cette page : mettez ce que vous voulez, rien de plus. Ces informations ne sont jamais publiées sur l'annuaire public. <a href="{{root}}annuaire-prive/" target="_blank" rel="noopener">Comment fonctionne l'annuaire privé</a></p>
+    </div>
+    <div class="champ">
+      <label for="f-portrait">Une photo de vous</label>
+      <p class="aide">Un portrait simple, pour que les autres membres vous reconnaissent. Il est réduit sur votre appareil avant l'envoi et n'apparaît que dans l'annuaire privé.</p>
+      <input type="file" id="f-portrait" accept="image/*">
+      <div id="zone-portrait" aria-live="polite"></div>
+    </div>
+    <div class="champ"><label for="f-competences">Mes compétences, ce que je sais faire en dehors de mon métier</label><textarea id="f-competences" name="competences" maxlength="600" rows="4" placeholder="Comptabilité, photo, réseaux sociaux, bricolage, anglais…"></textarea><p class="compte" data-compte="f-competences"></p></div>
+    <div class="champ"><label for="f-interets">Mes centres d'intérêt</label><textarea id="f-interets" name="centres_interet" maxlength="400" rows="3" placeholder="Course à pied, jardin partagé, musique, vin nature…"></textarea><p class="compte" data-compte="f-interets"></p></div>
+    <div class="champ"><label for="f-recherche">Ce que je cherche ou ce que je peux proposer aux autres entrepreneurs</label><textarea id="f-recherche" name="recherche" maxlength="600" rows="4" placeholder="Un local à partager, un associé, des recommandations, un coup de main pour un salon…"></textarea><p class="compte" data-compte="f-recherche"></p></div>
+    <div class="champ case"><input type="checkbox" id="f-priv" name="consent_prive"><label for="f-priv">J'accepte de figurer dans l'<strong>annuaire privé des entrepreneurs</strong>, réservé aux membres du groupe, avec mes prénom et nom, mon e-mail et mon téléphone privés, ma photo et les informations de cette page. L'appartenance au groupe est validée au cas par cas ; elle est donnée en priorité aux activités dont le siège est à L'Étang-la-Ville.</label></div>
+  </fieldset>
+
+  <fieldset class="etape" data-step="5" data-volet="commun" data-titre="Validation" hidden>
+    <legend>Validation</legend>
+    <div id="recap-volets" class="message" aria-live="polite"></div>
+    <div class="champ case"><input type="checkbox" id="f-conditions" name="conditions" required><label for="f-conditions">J'ai lu et j'accepte les <a href="{{root}}conditions-de-publication/" target="_blank" rel="noopener">conditions de publication</a>. *</label></div>
     <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="entreprise_web" tabindex="-1" autocomplete="off"></label></div>
     <div id="turnstile" class="champ"></div>
   </fieldset>
