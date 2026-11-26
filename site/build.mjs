@@ -387,7 +387,7 @@ const indexJson = slugsOrdonnes.map((s) => {
 });
 ecrire('index.json', JSON.stringify(indexJson));
 ecrire('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.filter((p) => p.sitemap).map((p) => `  <url><loc>${esc(p.url)}</loc><lastmod>${aujourdhui}</lastmod></url>`).join('\n')}\n</urlset>\n`);
-ecrire('robots.txt', `User-agent: *\nAllow: /\nDisallow: ${BASE_PATH}modifier/\nDisallow: ${BASE_PATH}confirmer/\n\nSitemap: ${cfg.SITE_URL}/sitemap.xml\n`);
+ecrire('robots.txt', `User-agent: *\nAllow: /\nDisallow: ${BASE_PATH}modifier/\nDisallow: ${BASE_PATH}confirmer/\nDisallow: ${BASE_PATH}membres/\n\nSitemap: ${cfg.SITE_URL}/sitemap.xml\n`);
 ecrire('.nojekyll', '');
 
 console.log(`\nBuild terminé : ${fiches.length} fiche(s), ${pages.length} pages → ${OUT}`);
